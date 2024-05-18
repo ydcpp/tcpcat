@@ -34,6 +34,9 @@ TcpServer::~TcpServer()
         session->Close();
     }
     sessions_.clear();
+    if (acceptor_.is_open()) {
+        acceptor_.close();
+    }
     ctx_.stop();
     running_ = false;
     for (auto &worker : workers_) {
@@ -131,8 +134,10 @@ void TcpServer::HandleAccept(std::shared_ptr<TcpSession> session, const asio::er
         session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
         acceptor_.async_accept(*socket, std::bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
     } else {
-        session->OnError(err);
         session.reset();
+        if (err != asio::error::operation_aborted) {
+            session->OnError(err);
+        }
     }
 }
 
