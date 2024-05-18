@@ -30,9 +30,9 @@
 #include <vector>
 #include <memory>
 
-#include "asio/asio.hpp"
+#include "asio.hpp"
 
-#include "base/TcpSession.h"
+#include "TcpSession.h"
 
 namespace tcpcat
 {

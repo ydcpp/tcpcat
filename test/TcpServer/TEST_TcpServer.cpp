@@ -31,7 +31,7 @@
 
 TEST(Server, TEST_001)
 {
-    tcpcat::TcpServer server("127.0.0.1", 3000, std::make_shared<ServerHandler>());
+    tcpcat::TcpServer server("127.0.0.1", 55889, std::make_shared<ServerHandler>());
     std::thread t([&server](){
         ASSERT_NO_THROW(server.Start());
     });
@@ -44,7 +44,7 @@ TEST(Server, TEST_001)
 }
 TEST(Server, TEST_002)
 {
-    tcpcat::TcpServer server("127.0.0.1", 3000, std::make_shared<ServerHandler>());
+    tcpcat::TcpServer server("127.0.0.1", 55889, std::make_shared<ServerHandler>());
     server.StartNonBlocking();
     std::this_thread::sleep_for(std::chrono::seconds(1));
     EXPECT_TRUE(server.IsRunning());
@@ -55,7 +55,7 @@ TEST(Server, TEST_002)
 TEST(Server, TEST_003)
 {
     const std::string ip = "1.2.3.4";
-    const uint16_t port = 5555;
+    const uint16_t port = 55889;
     tcpcat::TcpServer server(ip, port, std::make_shared<ServerHandler>());
     EXPECT_EQ(server.GetIp(), ip);
     EXPECT_EQ(server.GetPort(), port);
