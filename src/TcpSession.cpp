@@ -35,13 +35,6 @@ TcpSession::TcpSession(std::shared_ptr<asio::ip::tcp::socket> socket, std::share
 {
 }
 
-TcpSession::TcpSession(asio::io_context &ctx, std::shared_ptr<EventHandler> eventHandler, size_t buffSize) :
-    socket_(std::make_shared<asio::ip::tcp::socket>(ctx)),
-    eventHandler_(eventHandler),
-    readBuffer_(buffSize == 0 ? 256 : buffSize)
-{
-}
-
 void TcpSession::OnConnected()
 {
     remoteEndpoint_ = socket_->remote_endpoint();
@@ -108,11 +101,6 @@ void TcpSession::SendAsync(const std::vector<unsigned char> &buffer, size_t offs
                               sharedThis->eventHandler_->OnSent(sharedThis, buffer, bytes);
                           }
                       });
-}
-
-std::shared_ptr<asio::ip::tcp::socket> TcpSession::Socket()
-{
-    return socket_;
 }
 
 void TcpSession::Listen()

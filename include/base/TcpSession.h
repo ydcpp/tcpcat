@@ -46,11 +46,8 @@ public:
     TcpSession(const TcpSession &) = delete;
     TcpSession &operator=(const TcpSession &) = delete;
 
-    /// @brief Used by TcpClient, do not manually create TcpSession.
+    /// @brief Used by Server or Client classes, do not manually create TcpSession.
     TcpSession(std::shared_ptr<asio::ip::tcp::socket> socket, std::shared_ptr<EventHandler> eventHandler, size_t buffSize);
-
-    /// @brief Used by TcpServer, do not manually create TcpSession.
-    TcpSession(asio::io_context &ctx, std::shared_ptr<EventHandler> eventHandler, size_t buffSize);
 
     /// @brief Sets RemoteEndpoint and calls EventHandler->OnConnected when connection is established with the peer.
     void OnConnected();
@@ -74,10 +71,6 @@ public:
     /// @param offset Offset value from the beginning of `buffer`.
     /// @param size Count of bytes to be sent starting from `offset`.
     void SendAsync(const std::vector<unsigned char> &buffer, size_t offset, size_t size);
-
-    /// @brief Gets the socket of this session.
-    /// @return Returns the socket.
-    std::shared_ptr<asio::ip::tcp::socket> Socket();
 
     /// @brief Starts listening for incoming data.
     void Listen();

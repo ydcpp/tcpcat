@@ -76,9 +76,10 @@ void TcpServer::Start()
         running_ = true;
         OnStarted();
         while (running_) {
-            auto session = std::make_shared<TcpSession>(ctx_, handler_, buffSize_);
+            auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
+            auto session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
             asio::error_code err;
-            acceptor_.accept(*session->Socket(), err);
+            acceptor_.accept(*socket, err);
             if (!running_) {
                 return;
             }
@@ -102,8 +103,9 @@ void TcpServer::StartNonBlocking()
             workers_.emplace_back([this]() { ctx_.run(); });
         }
         running_ = true;
-        auto session = std::make_shared<TcpSession>(ctx_, handler_, buffSize_);
-        acceptor_.async_accept(*session->Socket(), bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
+        auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
+        auto session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
+        acceptor_.async_accept(*socket, bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
         OnStarted();
     }
 }
@@ -151,8 +153,9 @@ void TcpServer::HandleAccept(std::shared_ptr<TcpSession> session, const asio::er
         session->OnConnected();
         session->Listen();
         sessions_[session->GetId()] = session;
-        session = std::make_shared<TcpSession>(ctx_, handler_, buffSize_);
-        acceptor_.async_accept(*session->Socket(), std::bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
+        auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
+        session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
+        acceptor_.async_accept(*socket, std::bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
     } else {
         session->OnError(err);
         session.reset();
