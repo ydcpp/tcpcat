@@ -31,6 +31,8 @@
 #include <memory>
 #include <atomic>
 #include <thread>
+#include <mutex>
+#include <condition_variable>
 #include <unordered_map>
 
 #include "asio/asio.hpp"
@@ -55,7 +57,8 @@ public:
     /// @param handler Event handler object for callbacks.
     /// @param bufferSize I/O buffer size.
     /// @param threadCount Specifies how many threads server should run for handling connections.
-    TcpServer(const std::string &ip, uint16_t port, std::shared_ptr<EventHandler> handler, size_t bufferSize = 256, uint8_t threadCount = 8);
+    TcpServer(const std::string &ip, uint16_t port, std::shared_ptr<EventHandler> handler, size_t bufferSize = 256,
+              uint8_t threadCount = 8);
 
     /// @brief Gets called when TCP server is started, writes started message on standard output.
     virtual void OnStarted();
@@ -95,6 +98,8 @@ private:
     asio::io_context::work ctxWork_;
     asio::ip::tcp::endpoint endpoint_;
     asio::ip::tcp::acceptor acceptor_;
+    std::mutex mtx_;
+    std::condition_variable cv_;
     uint8_t threadPoolSize_;
     std::vector<std::thread> workers_;
     std::string ip_;
@@ -105,6 +110,7 @@ private:
 
 private:
     void HandleAccept(std::shared_ptr<TcpSession> session, const asio::error_code &err);
+    void StartAcceptor();
 };
 
 }

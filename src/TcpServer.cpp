@@ -54,6 +54,7 @@ TcpServer::TcpServer(const std::string &ip, uint16_t port, std::shared_ptr<Event
     handler_(handler),
     buffSize_(bufferSize)
 {
+    acceptor_.set_option(asio::ip::tcp::acceptor::reuse_address(true));
 }
 
 void TcpServer::OnStarted()
@@ -69,44 +70,16 @@ void TcpServer::OnStopped()
 void TcpServer::Start()
 {
     if (!running_) {
-        ctx_.restart();
-        for (uint16_t i = 0; i < threadPoolSize_; i++) {
-            workers_.emplace_back([this]() { ctx_.run(); });
-        }
-        running_ = true;
-        OnStarted();
-        while (running_) {
-            auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
-            auto session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
-            asio::error_code err;
-            acceptor_.accept(*socket, err);
-            if (!running_) {
-                return;
-            }
-            if (err) {
-                session->OnError(err);
-                session.reset();
-            } else {
-                sessions_[session->GetId()] = session;
-                session->OnConnected();
-                session->Listen();
-            }
-        }
+        StartAcceptor();
+        std::unique_lock<std::mutex> lock(mtx_);
+        cv_.wait(lock, [this]() { return !running_; });
     }
 }
 
 void TcpServer::StartNonBlocking()
 {
     if (!running_) {
-        ctx_.restart();
-        for (uint16_t i = 0; i < threadPoolSize_; i++) {
-            workers_.emplace_back([this]() { ctx_.run(); });
-        }
-        running_ = true;
-        auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
-        auto session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
-        acceptor_.async_accept(*socket, bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
-        OnStarted();
+        StartAcceptor();
     }
 }
 
@@ -114,6 +87,7 @@ void TcpServer::Stop()
 {
     if (running_) {
         ctx_.stop();
+        acceptor_.close();
         for (auto &worker : workers_) {
             if (worker.joinable()) {
                 worker.join();
@@ -121,7 +95,7 @@ void TcpServer::Stop()
         }
         workers_.clear();
         running_ = false;
-        acceptor_.close();
+        cv_.notify_all();
         OnStopped();
     }
 }
@@ -160,6 +134,19 @@ void TcpServer::HandleAccept(std::shared_ptr<TcpSession> session, const asio::er
         session->OnError(err);
         session.reset();
     }
+}
+
+void TcpServer::StartAcceptor()
+{
+    ctx_.restart();
+    for (uint16_t i = 0; i < threadPoolSize_; i++) {
+        workers_.emplace_back([this]() { ctx_.run(); });
+    }
+    running_ = true;
+    auto socket = std::make_shared<asio::ip::tcp::socket>(ctx_);
+    auto session = std::make_shared<TcpSession>(socket, handler_, buffSize_);
+    acceptor_.async_accept(*socket, std::bind(&TcpServer::HandleAccept, this, session, asio::placeholders::error));
+    OnStarted();
 }
 
 }
