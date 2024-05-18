@@ -1,0 +1,18 @@
+# CMake
+build/
+install/
+CMakeUserPresets.json
+
+# Visual Studio
+.vs/
+out/
+CMakeSettings.json
+
+# CLion
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# macOS
+.DS_Store
