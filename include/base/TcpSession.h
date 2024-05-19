@@ -31,7 +31,7 @@
 #include <memory>
 #include <optional>
 
-#include "asio.hpp"
+#include "deps/asio.hpp"
 
 namespace tcpcat
 {
