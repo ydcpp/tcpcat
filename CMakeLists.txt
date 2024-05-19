@@ -11,7 +11,8 @@ project(${PROJECT_NAME} LANGUAGES CXX
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE HDR_FILES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
-                                              ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp)
+                                              ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+                                              ${CMAKE_CURRENT_SOURCE_DIR}/include/*.ipp)
 
 add_library(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE ${SRC_FILES} ${HDR_FILES})

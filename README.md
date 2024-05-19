@@ -53,6 +53,10 @@ int main()
     // blocking start, waits for new connections to accept.
     server.Start();
 
+    // call Stop() to stop server anytime.
+    // if server is started by blocking Start() function then you should call Stop() from a different thread.
+    // server.Stop();
+
     return 0;
 }
 ~~~
@@ -99,10 +103,14 @@ int main()
     auto handler = std::make_shared<MyClientHandler>();
     tcpcat::TcpClient client("tcpbin.com", 4242, handler);
 
-    // non-blocking connect, handler->OnConnected will be triggered on success, handler->OnError will be triggered on fail.
+    // non-blocking connect:
+    // - handler->OnConnected will be triggered on success.
+    // - handler->OnError will be triggered on fail.
     // client.ConnectAsync();
 
     // blocking connect, check return value or client.IsConnected() to verify connection.
+    // - handler->OnConnected will be triggered on success.
+    // - handler->OnError will be triggered on fail.
     const bool connResult = client.Connect();
     if (!connResult) {
         std::cout << "Failed to connect to server.\n";
@@ -122,18 +130,14 @@ int main()
 }
 ~~~
 
-## Build with CMake
-### Windows
+## Build with CMake (Windows/Linux/MacOS)
+### Configure
 ~~~shell
-cmake --no-warn-unused-cli -S . -B build -G "Visual Studio 17 2022"
-
-cmake --build build --config Release
+cmake -S . -B build
 ~~~
 
-### Linux
+### Build
 ~~~shell
-cmake --no-warn-unused-cli -S . -B build -G "Unix Makefiles"
-
 cmake --build build --config Release
 ~~~
 
@@ -148,7 +152,7 @@ Validate `tcpcat` package exists by using following command to list all installe
 ```
 conan list "*"
 ```
-### Using tcpcat library in  your project
+### Using tcpcat package in  your project
 1- Create `conanfile.py` or `conanfile.txt` file in the root of your project.
 
 **conanfile.txt**
@@ -185,12 +189,12 @@ class ExampleRecipe(ConanFile):
 conan install . --build=missing
 ```
 
-3- Finally, edit `CMakeLists.txt` of your project to link against libraries. In this case, we link to `tcpcat` library.
+3- Edit `CMakeLists.txt` of your project to link against libraries. In this case, we link to `tcpcat` library.
 
 Add these lines after declaring the target in CMakeLists.
 
 **CMakeLists.txt**
-```
+```cmake
 find_package(tcpcat)
 target_link_libraries(<your_target> tcpcat::tcpcat)
 ```
@@ -198,7 +202,7 @@ target_link_libraries(<your_target> tcpcat::tcpcat)
 Make sure to edit `<your_target>` with the actual target name.
 
 4- Use tcpcat header:
-```c
+```cpp
 #include <tcpcat/tcpcat.h>
 ```
 
