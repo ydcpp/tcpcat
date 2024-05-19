@@ -40,7 +40,7 @@ class EventHandlerServerTest : public tcpcat::EventHandler
     void OnConnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
         std::lock_guard<std::recursive_mutex> lock(g_mtx);
-        std::cout << "SessionID [" << session->GetId() << "] OnConnected: " << session->RemoteEndpoint().address().to_string() << " : "
+        std::cout << "Server OnConnected: " << session->RemoteEndpoint().address().to_string() << " : "
                   << session->RemoteEndpoint().port() << '\n';
         const std::string clientIp = session->RemoteEndpoint().address().to_string();
         EXPECT_EQ(clientIp, "127.0.0.1");
@@ -49,17 +49,18 @@ class EventHandlerServerTest : public tcpcat::EventHandler
     void OnReceived(std::shared_ptr<tcpcat::TcpSession> session, const std::vector<unsigned char> &buf, size_t bytes) override
     {
         std::lock_guard<std::recursive_mutex> lock(g_mtx);
-        std::cout << "SessionID [" << session->GetId() << "] OnReceived: " << session->RemoteEndpoint().address().to_string() << " : "
+        std::cout << "Server OnReceived: " << session->RemoteEndpoint().address().to_string() << " : "
                   << session->RemoteEndpoint().port() << '\n';
         EXPECT_EQ(g_ClientToServer, std::string(buf.begin(), buf.begin() + bytes));
         std::vector<unsigned char> msg(g_ServerToClient.begin(), g_ServerToClient.end());
+        // Echo
         session->Send(msg, 0, msg.size());
     }
 
     void OnSent(std::shared_ptr<tcpcat::TcpSession> session, const std::vector<unsigned char> &buf, size_t bytes) override
     {
         std::lock_guard<std::recursive_mutex> lock(g_mtx);
-        std::cout << "SessionID [" << session->GetId() << "] OnSent: " << session->RemoteEndpoint().address().to_string() << " : "
+        std::cout << "Server OnSent: " << session->RemoteEndpoint().address().to_string() << " : "
                   << session->RemoteEndpoint().port() << '\n';
         EXPECT_EQ(g_ServerToClient, std::string(buf.begin(), buf.begin() + bytes));
     }
@@ -67,7 +68,7 @@ class EventHandlerServerTest : public tcpcat::EventHandler
     void OnDisconnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
         std::lock_guard<std::recursive_mutex> lock(g_mtx);
-        std::cout << "SessionID [" << session->GetId() << "] OnDisconnected: " << session->RemoteEndpoint().address().to_string() << " : "
+        std::cout << "Server OnDisconnected: " << session->RemoteEndpoint().address().to_string() << " : "
                   << session->RemoteEndpoint().port() << '\n';
         const std::string clientIp = session->RemoteEndpoint().address().to_string();
         EXPECT_EQ(clientIp, "127.0.0.1");
@@ -76,7 +77,7 @@ class EventHandlerServerTest : public tcpcat::EventHandler
     void OnError(std::shared_ptr<tcpcat::TcpSession> session, const asio::error_code &err) override
     {
         std::lock_guard<std::recursive_mutex> lock(g_mtx);
-        std::cout << "SessionID [" << session->GetId() << "] OnError: " << session->RemoteEndpoint().address().to_string() << " : "
+        std::cout << "Server OnError: " << session->RemoteEndpoint().address().to_string() << " : "
                   << session->RemoteEndpoint().port() << '\n';
         std::cout << "Error: " << err.message() << '\n';
     }
@@ -86,6 +87,9 @@ class EventHandlerClientTest : public tcpcat::EventHandler
 {
     void OnConnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
+        std::lock_guard<std::recursive_mutex> lock(g_mtx);
+        std::cout << "Client OnConnected: " << session->RemoteEndpoint().address().to_string() << " : "
+                  << session->RemoteEndpoint().port() << '\n';
         const std::string serverIp = session->RemoteEndpoint().address().to_string();
         const uint16_t serverPort = session->RemoteEndpoint().port();
         EXPECT_EQ(serverIp, "127.0.0.1");
@@ -94,17 +98,28 @@ class EventHandlerClientTest : public tcpcat::EventHandler
 
     void OnReceived(std::shared_ptr<tcpcat::TcpSession> session, const std::vector<unsigned char> &buf, size_t bytes) override
     {
+        std::lock_guard<std::recursive_mutex> lock(g_mtx);
+        std::cout << "Client OnReceived: " << session->RemoteEndpoint().address().to_string() << " : "
+                  << session->RemoteEndpoint().port() << '\n';
+        std::cout << "Message received from server: " << std::string(buf.begin(), buf.begin() + bytes) << '\n';
         EXPECT_EQ(g_ServerToClient, std::string(buf.begin(), buf.begin() + bytes));
         session->Close();
     }
 
     void OnSent(std::shared_ptr<tcpcat::TcpSession> session, const std::vector<unsigned char> &buf, size_t bytes) override
     {
+        std::lock_guard<std::recursive_mutex> lock(g_mtx);
+        std::cout << "Client OnSent: " << session->RemoteEndpoint().address().to_string() << " : "
+                  << session->RemoteEndpoint().port() << '\n';
+        std::cout << "Message sent to server: " << std::string(buf.begin(), buf.begin() + bytes) << '\n';
         EXPECT_EQ(g_ClientToServer, std::string(buf.begin(), buf.begin() + bytes));
     }
 
     void OnDisconnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
+        std::lock_guard<std::recursive_mutex> lock(g_mtx);
+        std::cout << "Client OnDisconnected: " << session->RemoteEndpoint().address().to_string() << " : "
+                  << session->RemoteEndpoint().port() << '\n';
         const std::string serverIp = session->RemoteEndpoint().address().to_string();
         const uint16_t serverPort = session->RemoteEndpoint().port();
         EXPECT_EQ(serverIp, "127.0.0.1");
@@ -113,6 +128,9 @@ class EventHandlerClientTest : public tcpcat::EventHandler
 
     void OnError(std::shared_ptr<tcpcat::TcpSession> session, const asio::error_code &err) override
     {
+        std::lock_guard<std::recursive_mutex> lock(g_mtx);
+        std::cout << "Client OnError: " << session->RemoteEndpoint().address().to_string() << " : "
+                  << session->RemoteEndpoint().port() << '\n';
         std::cout << "Error: " << err.message() << '\n';
     }
 };

@@ -78,3 +78,14 @@ TEST(Client, TEST_003)
     ASSERT_NO_THROW(client.ConnectAsync());
     std::this_thread::sleep_for(std::chrono::seconds(1));
 }
+
+TEST(Client, TEST_004)
+{
+    tcpcat::TcpClient client("tcpbin.com", 4242, std::make_shared<ClientHandler>());
+    ASSERT_NO_THROW(client.Connect());
+    if (client.IsConnected()) {
+        const std::string msg = "hello tcpcat";
+        client.Send(std::vector<unsigned char>(msg.begin(), msg.end()));
+    }
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+}
