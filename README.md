@@ -47,15 +47,7 @@ int main()
 
     tcpcat::TcpServer server("127.0.0.1", 3001, handler, bufferSize, threadCount);
 
-    // non-blocking start, ensure the server object lifetime is handled when using this.
-    // server.StartNonBlocking();
-
-    // blocking start, waits for new connections to accept.
     server.Start();
-
-    // call Stop() to stop server anytime.
-    // if server is started by blocking Start() function then you should call Stop() from a different thread.
-    // server.Stop();
 
     return 0;
 }
@@ -103,28 +95,19 @@ int main()
     auto handler = std::make_shared<MyClientHandler>();
     tcpcat::TcpClient client("tcpbin.com", 4242, handler);
 
-    // non-blocking connect:
-    // - handler->OnConnected will be triggered on success.
-    // - handler->OnError will be triggered on fail.
-    // client.ConnectAsync();
-
-    // blocking connect, check return value or client.IsConnected() to verify connection.
-    // - handler->OnConnected will be triggered on success.
-    // - handler->OnError will be triggered on fail.
-    const bool connResult = client.Connect();
-    if (!connResult) {
+    client.Connect();
+    if (!client.IsConnected()) {
         std::cout << "Failed to connect to server.\n";
         return -1;
     }
 
-    // send data to server
-    // client.Send or client.SendAsync
+
     client.SendAsync({ 65, 66, 67, 68 });    // send bytes
 
-    const std::string msg("hello world");
+    const std::string msg("hello tcpcat");
     client.Send(std::vector<unsigned char>(msg.begin(), msg.end()));    // send string
 
-    client.Disconnect();    // handler->OnDisconnected will be triggered.
+    client.Disconnect();
 
     return 0;
 }

@@ -38,12 +38,16 @@ int main()
     auto handler = std::make_shared<MyClientHandler>();
     tcpcat::TcpClient client("tcpbin.com", 4242, handler);
 
-    // non-blocking connect, handler->OnConnected will be triggered on success, handler->OnError will be triggered on fail.
+    // non-blocking connect:
+    // - handler->OnConnected will be triggered on success.
+    // - handler->OnError will be triggered on fail.
     // client.ConnectAsync();
 
     // blocking connect, check return value or client.IsConnected() to verify connection.
-    const bool connResult = client.Connect();
-    if (!connResult) {
+    // - handler->OnConnected will be triggered on success.
+    // - handler->OnError will be triggered on fail.
+    client.Connect();
+    if (!client.IsConnected()) {
         std::cout << "Failed to connect to server.\n";
         return -1;
     }
@@ -52,7 +56,7 @@ int main()
     // client.Send or client.SendAsync
     client.SendAsync({ 65, 66, 67, 68 });    // send bytes
 
-    const std::string msg("hello world");
+    const std::string msg("hello tcpcat");
     client.Send(std::vector<unsigned char>(msg.begin(), msg.end()));    // send string
 
     client.Disconnect();    // handler->OnDisconnected will be triggered.

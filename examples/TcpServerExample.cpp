@@ -47,5 +47,9 @@ int main()
     // blocking start, waits for new connections to accept.
     server.Start();
 
+    // call Stop() to stop server anytime.
+    // if server is started by blocking Start() function then you should call Stop() from a different thread.
+    // server.Stop();
+
     return 0;
 }
