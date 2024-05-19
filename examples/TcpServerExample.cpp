@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "tcpcat.h"
+#include "tcpcat/tcpcat.h"
 
 class MyServerHandler : public tcpcat::EventHandler
 {

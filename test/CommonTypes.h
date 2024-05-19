@@ -21,7 +21,7 @@
 * SOFTWARE.
 */
 
-#include "tcpcat.h"
+#include "tcpcat/tcpcat.h"
 
 #include <iostream>
 #include <string>

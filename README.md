@@ -7,7 +7,7 @@ An easy to use, cross-platform C++ TCP Server and Client library with ASIO.
 #include <iostream>
 #include <string>
 
-#include "tcpcat.h"
+#include "tcpcat/tcpcat.h"
 
 class MyServerHandler : public tcpcat::EventHandler
 {
@@ -58,7 +58,7 @@ int main()
 #include <iostream>
 #include <string>
 
-#include "tcpcat.h"
+#include "tcpcat/tcpcat.h"
 
 class MyClientHandler : public tcpcat::EventHandler
 {
@@ -186,6 +186,6 @@ Make sure to edit `<your_target>` with the actual target name.
 
 4- Use tcpcat header:
 ```cpp
-#include <tcpcat.h>
+#include <tcpcat/tcpcat.h>
 ```
 

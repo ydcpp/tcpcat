@@ -21,9 +21,9 @@
 * SOFTWARE.
 */
 
-#include "base/TcpSession.h"
+#include "tcpcat/base/TcpSession.h"
 
-#include "base/EventHandler.h"
+#include "tcpcat/base/EventHandler.h"
 
 namespace tcpcat
 {

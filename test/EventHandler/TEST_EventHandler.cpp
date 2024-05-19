@@ -26,7 +26,7 @@
 
 #include <gtest/gtest.h>
 
-#include "tcpcat.h"
+#include "tcpcat/tcpcat.h"
 
 namespace
 {
