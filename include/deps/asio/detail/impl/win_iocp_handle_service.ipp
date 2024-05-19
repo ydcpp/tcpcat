@@ -16,13 +16,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_IOCP)
 
-#include "asio/detail/win_iocp_handle_service.hpp"
+#include "deps/asio/detail/win_iocp_handle_service.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -612,7 +612,7 @@ void* win_iocp_handle_service::interlocked_exchange_pointer(
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // defined(ASIO_HAS_IOCP)
 

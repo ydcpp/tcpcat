@@ -1,4 +1,4 @@
-#include <tcpcat/tcpcat.h>
+#include <tcpcat.h>
 
 #include <iostream>
 #include <string>

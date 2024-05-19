@@ -16,11 +16,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/deferred.hpp"
-#include "asio/experimental/coro.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/deferred.hpp"
+#include "deps/asio/experimental/coro.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -164,6 +164,6 @@ auto coro_interpret_result(std::tuple<asio::error_code, Arg>&& args)
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_DETAIL_CORO_COMPLETION_HANDLER_HPP

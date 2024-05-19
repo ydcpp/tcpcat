@@ -15,16 +15,16 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_PIPE) \
   || defined(GENERATING_DOCUMENTATION)
 
-#include "asio/basic_readable_pipe.hpp"
-#include "asio/basic_writable_pipe.hpp"
-#include "asio/error.hpp"
+#include "deps/asio/basic_readable_pipe.hpp"
+#include "deps/asio/basic_writable_pipe.hpp"
+#include "deps/asio/error.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -70,11 +70,11 @@ ASIO_SYNC_OP_VOID connect_pipe(basic_readable_pipe<Executor1>& read_end,
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/connect_pipe.hpp"
+#include "deps/asio/impl/connect_pipe.hpp"
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/impl/connect_pipe.ipp"
+# include "deps/asio/impl/connect_pipe.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // defined(ASIO_HAS_PIPE)

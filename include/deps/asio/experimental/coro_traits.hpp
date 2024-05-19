@@ -16,10 +16,10 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <optional>
 #include <variant>
-#include "asio/any_io_executor.hpp"
+#include "deps/asio/any_io_executor.hpp"
 
 namespace asio {
 namespace experimental {

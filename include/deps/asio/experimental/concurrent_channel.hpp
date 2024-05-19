@@ -15,15 +15,15 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/any_io_executor.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/execution/executor.hpp"
-#include "asio/is_executor.hpp"
-#include "asio/experimental/basic_concurrent_channel.hpp"
-#include "asio/experimental/channel_traits.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/any_io_executor.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/execution/executor.hpp"
+#include "deps/asio/is_executor.hpp"
+#include "deps/asio/experimental/basic_concurrent_channel.hpp"
+#include "deps/asio/experimental/channel_traits.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -65,6 +65,6 @@ using concurrent_channel = typename detail::concurrent_channel_type<
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_CONCURRENT_CHANNEL_HPP

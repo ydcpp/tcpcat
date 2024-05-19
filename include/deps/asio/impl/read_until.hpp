@@ -19,19 +19,19 @@
 #include <string>
 #include <vector>
 #include <utility>
-#include "asio/associator.hpp"
-#include "asio/buffer.hpp"
-#include "asio/buffers_iterator.hpp"
-#include "asio/detail/base_from_cancellation_state.hpp"
-#include "asio/detail/bind_handler.hpp"
-#include "asio/detail/handler_cont_helpers.hpp"
-#include "asio/detail/handler_tracking.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/limits.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/throw_error.hpp"
+#include "deps/asio/associator.hpp"
+#include "deps/asio/buffer.hpp"
+#include "deps/asio/buffers_iterator.hpp"
+#include "deps/asio/detail/base_from_cancellation_state.hpp"
+#include "deps/asio/detail/bind_handler.hpp"
+#include "deps/asio/detail/handler_cont_helpers.hpp"
+#include "deps/asio/detail/handler_tracking.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/limits.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/throw_error.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -2936,6 +2936,6 @@ inline auto async_read_until(AsyncReadStream& s, DynamicBuffer_v2 buffers,
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_IMPL_READ_UNTIL_HPP

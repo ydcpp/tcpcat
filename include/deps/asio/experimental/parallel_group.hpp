@@ -15,16 +15,16 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <vector>
-#include "asio/async_result.hpp"
-#include "asio/detail/array.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/detail/utility.hpp"
-#include "asio/experimental/cancellation_condition.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/detail/array.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/detail/utility.hpp"
+#include "deps/asio/experimental/cancellation_condition.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -450,8 +450,8 @@ make_parallel_group(allocator_arg_t, const Allocator& allocator, Range&& range,
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/experimental/impl/parallel_group.hpp"
+#include "deps/asio/experimental/impl/parallel_group.hpp"
 
 #endif // ASIO_EXPERIMENTAL_PARALLEL_GROUP_HPP

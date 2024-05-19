@@ -15,19 +15,19 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_WINDOWS_RUNTIME)
 
-#include "asio/ip/basic_resolver_query.hpp"
-#include "asio/ip/basic_resolver_results.hpp"
-#include "asio/detail/concurrency_hint.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/resolve_endpoint_op.hpp"
-#include "asio/detail/resolve_query_op.hpp"
-#include "asio/detail/resolver_service_base.hpp"
+#include "deps/asio/ip/basic_resolver_query.hpp"
+#include "deps/asio/ip/basic_resolver_results.hpp"
+#include "deps/asio/detail/concurrency_hint.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/resolve_endpoint_op.hpp"
+#include "deps/asio/detail/resolve_query_op.hpp"
+#include "deps/asio/detail/resolver_service_base.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -140,7 +140,7 @@ public:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // !defined(ASIO_WINDOWS_RUNTIME)
 

@@ -15,33 +15,33 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <cstddef>
 #include <stdexcept>
 #include <typeinfo>
-#include "asio/async_result.hpp"
-#include "asio/detail/chrono.hpp"
-#include "asio/detail/concurrency_hint.hpp"
-#include "asio/detail/cstdint.hpp"
-#include "asio/detail/wrapped_handler.hpp"
-#include "asio/error_code.hpp"
-#include "asio/execution.hpp"
-#include "asio/execution_context.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/detail/chrono.hpp"
+#include "deps/asio/detail/concurrency_hint.hpp"
+#include "deps/asio/detail/cstdint.hpp"
+#include "deps/asio/detail/wrapped_handler.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/execution.hpp"
+#include "deps/asio/execution_context.hpp"
 
 #if defined(ASIO_WINDOWS) || defined(__CYGWIN__)
-# include "asio/detail/winsock_init.hpp"
+# include "deps/asio/detail/winsock_init.hpp"
 #elif defined(__sun) || defined(__QNX__) || defined(__hpux) || defined(_AIX) \
   || defined(__osf__)
-# include "asio/detail/signal_init.hpp"
+# include "deps/asio/detail/signal_init.hpp"
 #endif
 
 #if defined(ASIO_HAS_IOCP)
-# include "asio/detail/win_iocp_io_context.hpp"
+# include "deps/asio/detail/win_iocp_io_context.hpp"
 #else
-# include "asio/detail/scheduler.hpp"
+# include "deps/asio/detail/scheduler.hpp"
 #endif
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -1487,18 +1487,18 @@ struct is_executor<io_context> : false_type
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/io_context.hpp"
+#include "deps/asio/impl/io_context.hpp"
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/impl/io_context.ipp"
+# include "deps/asio/impl/io_context.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 // If both io_context.hpp and strand.hpp have been included, automatically
 // include the header file needed for the io_context::strand class.
 #if !defined(ASIO_NO_EXTENSIONS)
 # if defined(ASIO_STRAND_HPP)
-#  include "asio/io_context_strand.hpp"
+#  include "deps/asio/io_context_strand.hpp"
 # endif // defined(ASIO_STRAND_HPP)
 #endif // !defined(ASIO_NO_EXTENSIONS)
 

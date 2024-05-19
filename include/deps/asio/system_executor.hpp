@@ -15,11 +15,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/execution.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/execution.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -664,8 +664,8 @@ struct query_member<
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/system_executor.hpp"
+#include "deps/asio/impl/system_executor.hpp"
 
 #endif // ASIO_SYSTEM_EXECUTOR_HPP

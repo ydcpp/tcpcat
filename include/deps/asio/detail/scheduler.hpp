@@ -15,20 +15,20 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
-#include "asio/error_code.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/detail/atomic_count.hpp"
-#include "asio/detail/conditionally_enabled_event.hpp"
-#include "asio/detail/conditionally_enabled_mutex.hpp"
-#include "asio/detail/op_queue.hpp"
-#include "asio/detail/scheduler_operation.hpp"
-#include "asio/detail/scheduler_task.hpp"
-#include "asio/detail/thread.hpp"
-#include "asio/detail/thread_context.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/detail/atomic_count.hpp"
+#include "deps/asio/detail/conditionally_enabled_event.hpp"
+#include "deps/asio/detail/conditionally_enabled_mutex.hpp"
+#include "deps/asio/detail/op_queue.hpp"
+#include "deps/asio/detail/scheduler_operation.hpp"
+#include "deps/asio/detail/scheduler_task.hpp"
+#include "deps/asio/detail/thread.hpp"
+#include "deps/asio/detail/thread_context.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -232,10 +232,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/scheduler.ipp"
+# include "deps/asio/detail/impl/scheduler.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_DETAIL_SCHEDULER_HPP

@@ -16,13 +16,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/append.hpp"
-#include "asio/associated_cancellation_slot.hpp"
-#include "asio/bind_allocator.hpp"
-#include "asio/deferred.hpp"
-#include "asio/experimental/detail/coro_completion_handler.hpp"
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/append.hpp"
+#include "deps/asio/associated_cancellation_slot.hpp"
+#include "deps/asio/bind_allocator.hpp"
+#include "deps/asio/deferred.hpp"
+#include "deps/asio/experimental/detail/coro_completion_handler.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -1217,6 +1217,6 @@ private:
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_IMPL_CORO_HPP

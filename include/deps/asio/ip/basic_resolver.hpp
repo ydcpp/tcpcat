@@ -15,29 +15,29 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <string>
 #include <utility>
-#include "asio/any_io_executor.hpp"
-#include "asio/async_result.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/io_object_impl.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/string_view.hpp"
-#include "asio/detail/throw_error.hpp"
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/ip/basic_resolver_iterator.hpp"
-#include "asio/ip/basic_resolver_query.hpp"
-#include "asio/ip/basic_resolver_results.hpp"
-#include "asio/ip/resolver_base.hpp"
+#include "deps/asio/any_io_executor.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/io_object_impl.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/string_view.hpp"
+#include "deps/asio/detail/throw_error.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/ip/basic_resolver_iterator.hpp"
+#include "deps/asio/ip/basic_resolver_query.hpp"
+#include "deps/asio/ip/basic_resolver_results.hpp"
+#include "deps/asio/ip/resolver_base.hpp"
 #if defined(ASIO_WINDOWS_RUNTIME)
-# include "asio/detail/winrt_resolver_service.hpp"
+# include "deps/asio/detail/winrt_resolver_service.hpp"
 #else
-# include "asio/detail/resolver_service.hpp"
+# include "deps/asio/detail/resolver_service.hpp"
 #endif
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace ip {
@@ -1107,6 +1107,6 @@ private:
 } // namespace ip
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_IP_BASIC_RESOLVER_HPP

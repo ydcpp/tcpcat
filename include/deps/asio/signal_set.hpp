@@ -15,8 +15,8 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/basic_signal_set.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/basic_signal_set.hpp"
 
 namespace asio {
 

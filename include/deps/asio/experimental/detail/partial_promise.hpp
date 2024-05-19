@@ -12,10 +12,10 @@
 #ifndef ASIO_EXPERIMENTAL_DETAIL_PARTIAL_PROMISE_HPP
 #define ASIO_EXPERIMENTAL_DETAIL_PARTIAL_PROMISE_HPP
 
-#include "asio/detail/config.hpp"
-#include "asio/append.hpp"
-#include "asio/awaitable.hpp"
-#include "asio/experimental/coro_traits.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/append.hpp"
+#include "deps/asio/awaitable.hpp"
+#include "deps/asio/experimental/coro_traits.hpp"
 
 #if defined(ASIO_HAS_STD_COROUTINE)
 # include <coroutine>

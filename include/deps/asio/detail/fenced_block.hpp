@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_HAS_THREADS) \
   || defined(ASIO_DISABLE_FENCED_BLOCK)
-# include "asio/detail/null_fenced_block.hpp"
+# include "deps/asio/detail/null_fenced_block.hpp"
 #else
-# include "asio/detail/std_fenced_block.hpp"
+# include "deps/asio/detail/std_fenced_block.hpp"
 #endif
 
 namespace asio {

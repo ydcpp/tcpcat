@@ -15,15 +15,15 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/execution/executor.hpp"
-#include "asio/execution/outstanding_work.hpp"
-#include "asio/executor_work_guard.hpp"
-#include "asio/is_executor.hpp"
-#include "asio/system_executor.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/execution/executor.hpp"
+#include "deps/asio/execution/outstanding_work.hpp"
+#include "deps/asio/executor_work_guard.hpp"
+#include "deps/asio/is_executor.hpp"
+#include "deps/asio/system_executor.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -247,6 +247,6 @@ inline const Executor& get_composed_io_executor(const Executor& ex,
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_DETAIL_COMPOSED_WORK_HPP

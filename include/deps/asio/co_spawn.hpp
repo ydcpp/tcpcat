@@ -15,16 +15,16 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_CO_AWAIT) || defined(GENERATING_DOCUMENTATION)
 
-#include "asio/awaitable.hpp"
-#include "asio/execution/executor.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/is_executor.hpp"
+#include "deps/asio/awaitable.hpp"
+#include "deps/asio/execution/executor.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/is_executor.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -514,9 +514,9 @@ co_spawn(ExecutionContext& ctx, F&& f,
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/co_spawn.hpp"
+#include "deps/asio/impl/co_spawn.hpp"
 
 #endif // defined(ASIO_HAS_CO_AWAIT) || defined(GENERATING_DOCUMENTATION)
 

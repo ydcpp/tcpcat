@@ -15,15 +15,15 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #include <cctype>
 #include <cstring>
-#include "asio/ip/address.hpp"
-#include "asio/ssl/host_name_verification.hpp"
-#include "asio/ssl/detail/openssl_types.hpp"
+#include "deps/asio/ip/address.hpp"
+#include "deps/asio/ssl/host_name_verification.hpp"
+#include "deps/asio/ssl/detail/openssl_types.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace ssl {
@@ -68,6 +68,6 @@ bool host_name_verification::operator()(
 } // namespace ssl
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_SSL_IMPL_HOST_NAME_VERIFICATION_IPP

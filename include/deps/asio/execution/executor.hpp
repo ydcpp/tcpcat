@@ -15,11 +15,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/execution/invocable_archetype.hpp"
-#include "asio/traits/equality_comparable.hpp"
-#include "asio/traits/execute_member.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/execution/invocable_archetype.hpp"
+#include "deps/asio/traits/equality_comparable.hpp"
+#include "deps/asio/traits/execute_member.hpp"
 
 #if defined(ASIO_HAS_DEDUCED_EXECUTE_MEMBER_TRAIT) \
   && defined(ASIO_HAS_DEDUCED_EQUALITY_COMPARABLE_TRAIT)
@@ -27,7 +27,7 @@
 #endif // defined(ASIO_HAS_DEDUCED_EXECUTE_MEMBER_TRAIT)
        //   && defined(ASIO_HAS_DEDUCED_EQUALITY_COMPARABLE_TRAIT)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace execution {
@@ -111,6 +111,6 @@ ASIO_CONCEPT executor = is_executor<T>::value;
 } // namespace execution
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXECUTION_EXECUTOR_HPP

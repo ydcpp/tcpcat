@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/associator.hpp"
-#include "asio/cancellation_signal.hpp"
-#include "asio/detail/functional.hpp"
-#include "asio/detail/type_traits.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/associator.hpp"
+#include "deps/asio/cancellation_signal.hpp"
+#include "deps/asio/detail/functional.hpp"
+#include "deps/asio/detail/type_traits.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -216,6 +216,6 @@ struct associated_cancellation_slot<reference_wrapper<T>, CancellationSlot>
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_ASSOCIATED_CANCELLATION_SLOT_HPP

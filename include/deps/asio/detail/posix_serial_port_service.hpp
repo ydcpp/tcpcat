@@ -16,24 +16,24 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_SERIAL_PORT)
 #if !defined(ASIO_WINDOWS) && !defined(__CYGWIN__)
 
 #include <string>
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/serial_port_base.hpp"
-#include "asio/detail/descriptor_ops.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/serial_port_base.hpp"
+#include "deps/asio/detail/descriptor_ops.hpp"
 
 #if defined(ASIO_HAS_IO_URING_AS_DEFAULT)
-# include "asio/detail/io_uring_descriptor_service.hpp"
+# include "deps/asio/detail/io_uring_descriptor_service.hpp"
 #else // defined(ASIO_HAS_IO_URING_AS_DEFAULT)
-# include "asio/detail/reactive_descriptor_service.hpp"
+# include "deps/asio/detail/reactive_descriptor_service.hpp"
 #endif // defined(ASIO_HAS_IO_URING_AS_DEFAULT)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -237,10 +237,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/posix_serial_port_service.ipp"
+# include "deps/asio/detail/impl/posix_serial_port_service.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // !defined(ASIO_WINDOWS) && !defined(__CYGWIN__)

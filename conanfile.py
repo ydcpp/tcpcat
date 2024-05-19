@@ -52,7 +52,7 @@ class tcpcatRecipe(ConanFile):
         cmake.build()
 
     def package(self):
-        copy(self, "*", src=join(self.source_folder, "include"), dst=join(self.package_folder, "include/tcpcat"))
+        copy(self, "*", src=join(self.source_folder, "include"), dst=join(self.package_folder, "include"))
         cmake = CMake(self)
         cmake.install()
 

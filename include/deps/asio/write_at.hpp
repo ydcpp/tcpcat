@@ -15,18 +15,18 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <cstddef>
-#include "asio/async_result.hpp"
-#include "asio/completion_condition.hpp"
-#include "asio/detail/cstdint.hpp"
-#include "asio/error.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/completion_condition.hpp"
+#include "deps/asio/detail/cstdint.hpp"
+#include "deps/asio/error.hpp"
 
 #if !defined(ASIO_NO_EXTENSIONS)
-# include "asio/basic_streambuf_fwd.hpp"
+# include "deps/asio/basic_streambuf_fwd.hpp"
 #endif // !defined(ASIO_NO_EXTENSIONS)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -782,8 +782,8 @@ auto async_write_at(AsyncRandomAccessWriteDevice& d, uint64_t offset,
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/write_at.hpp"
+#include "deps/asio/impl/write_at.hpp"
 
 #endif // ASIO_WRITE_AT_HPP

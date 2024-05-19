@@ -15,29 +15,29 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_IO_URING)
 
-#include "asio/associated_cancellation_slot.hpp"
-#include "asio/buffer.hpp"
-#include "asio/cancellation_type.hpp"
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/socket_base.hpp"
-#include "asio/detail/buffer_sequence_adapter.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/io_uring_null_buffers_op.hpp"
-#include "asio/detail/io_uring_service.hpp"
-#include "asio/detail/io_uring_socket_recv_op.hpp"
-#include "asio/detail/io_uring_socket_recvmsg_op.hpp"
-#include "asio/detail/io_uring_socket_send_op.hpp"
-#include "asio/detail/io_uring_wait_op.hpp"
-#include "asio/detail/socket_holder.hpp"
-#include "asio/detail/socket_ops.hpp"
-#include "asio/detail/socket_types.hpp"
+#include "deps/asio/associated_cancellation_slot.hpp"
+#include "deps/asio/buffer.hpp"
+#include "deps/asio/cancellation_type.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/socket_base.hpp"
+#include "deps/asio/detail/buffer_sequence_adapter.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/io_uring_null_buffers_op.hpp"
+#include "deps/asio/detail/io_uring_service.hpp"
+#include "deps/asio/detail/io_uring_socket_recv_op.hpp"
+#include "deps/asio/detail/io_uring_socket_recvmsg_op.hpp"
+#include "deps/asio/detail/io_uring_socket_send_op.hpp"
+#include "deps/asio/detail/io_uring_wait_op.hpp"
+#include "deps/asio/detail/socket_holder.hpp"
+#include "deps/asio/detail/socket_ops.hpp"
+#include "deps/asio/detail/socket_types.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -652,10 +652,10 @@ protected:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/io_uring_socket_service_base.ipp"
+# include "deps/asio/detail/impl/io_uring_socket_service_base.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // defined(ASIO_HAS_IO_URING)

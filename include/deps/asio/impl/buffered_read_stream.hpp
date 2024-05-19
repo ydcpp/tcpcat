@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/associator.hpp"
-#include "asio/detail/handler_cont_helpers.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/type_traits.hpp"
+#include "deps/asio/associator.hpp"
+#include "deps/asio/detail/handler_cont_helpers.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/type_traits.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -399,6 +399,6 @@ std::size_t buffered_read_stream<Stream>::peek(
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_IMPL_BUFFERED_READ_STREAM_HPP

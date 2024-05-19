@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
 
-#include "asio/any_io_executor.hpp"
+#include "deps/asio/any_io_executor.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -127,7 +127,7 @@ any_io_executor any_io_executor::prefer(
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
 

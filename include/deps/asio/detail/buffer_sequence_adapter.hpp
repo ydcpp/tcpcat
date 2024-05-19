@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/buffer.hpp"
-#include "asio/detail/array_fwd.hpp"
-#include "asio/detail/socket_types.hpp"
-#include "asio/registered_buffer.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/buffer.hpp"
+#include "deps/asio/detail/array_fwd.hpp"
+#include "deps/asio/detail/socket_types.hpp"
+#include "deps/asio/registered_buffer.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -828,10 +828,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/buffer_sequence_adapter.ipp"
+# include "deps/asio/detail/impl/buffer_sequence_adapter.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_DETAIL_BUFFER_SEQUENCE_ADAPTER_HPP

@@ -15,27 +15,27 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_WINDOWS_RUNTIME)
 
-#include "asio/ip/basic_resolver_query.hpp"
-#include "asio/ip/basic_resolver_results.hpp"
-#include "asio/post.hpp"
-#include "asio/detail/bind_handler.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/socket_ops.hpp"
-#include "asio/detail/winrt_async_manager.hpp"
-#include "asio/detail/winrt_resolve_op.hpp"
-#include "asio/detail/winrt_utils.hpp"
+#include "deps/asio/ip/basic_resolver_query.hpp"
+#include "deps/asio/ip/basic_resolver_results.hpp"
+#include "deps/asio/post.hpp"
+#include "deps/asio/detail/bind_handler.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/socket_ops.hpp"
+#include "deps/asio/detail/winrt_async_manager.hpp"
+#include "deps/asio/detail/winrt_resolve_op.hpp"
+#include "deps/asio/detail/winrt_utils.hpp"
 
 #if defined(ASIO_HAS_IOCP)
-# include "asio/detail/win_iocp_io_context.hpp"
+# include "deps/asio/detail/win_iocp_io_context.hpp"
 #else // defined(ASIO_HAS_IOCP)
-# include "asio/detail/scheduler.hpp"
+# include "deps/asio/detail/scheduler.hpp"
 #endif // defined(ASIO_HAS_IOCP)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -205,7 +205,7 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // defined(ASIO_WINDOWS_RUNTIME)
 

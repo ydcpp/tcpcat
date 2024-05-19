@@ -203,6 +203,6 @@ Make sure to edit `<your_target>` with the actual target name.
 
 4- Use tcpcat header:
 ```cpp
-#include <tcpcat/tcpcat.h>
+#include <tcpcat.h>
 ```
 

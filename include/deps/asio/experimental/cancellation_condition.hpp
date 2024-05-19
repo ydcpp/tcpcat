@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <exception>
-#include "asio/cancellation_type.hpp"
-#include "asio/error_code.hpp"
-#include "asio/detail/type_traits.hpp"
+#include "deps/asio/cancellation_type.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/detail/type_traits.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -147,6 +147,6 @@ private:
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_CANCELLATION_CONDITION_HPP

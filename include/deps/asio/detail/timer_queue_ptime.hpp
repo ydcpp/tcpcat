@@ -15,14 +15,14 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_BOOST_DATE_TIME)
 
-#include "asio/time_traits.hpp"
-#include "asio/detail/timer_queue.hpp"
+#include "deps/asio/time_traits.hpp"
+#include "deps/asio/detail/timer_queue.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -92,10 +92,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/timer_queue_ptime.ipp"
+# include "deps/asio/detail/impl/timer_queue_ptime.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // defined(ASIO_HAS_BOOST_DATE_TIME)

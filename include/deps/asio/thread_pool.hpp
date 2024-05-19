@@ -15,14 +15,14 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/atomic_count.hpp"
-#include "asio/detail/scheduler.hpp"
-#include "asio/detail/thread_group.hpp"
-#include "asio/execution.hpp"
-#include "asio/execution_context.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/atomic_count.hpp"
+#include "deps/asio/detail/scheduler.hpp"
+#include "deps/asio/detail/thread_group.hpp"
+#include "deps/asio/execution.hpp"
+#include "deps/asio/execution_context.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -953,11 +953,11 @@ struct is_executor<thread_pool> : false_type
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/thread_pool.hpp"
+#include "deps/asio/impl/thread_pool.hpp"
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/impl/thread_pool.ipp"
+# include "deps/asio/impl/thread_pool.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_THREAD_POOL_HPP

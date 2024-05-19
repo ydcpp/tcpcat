@@ -15,11 +15,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/error_code.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/error_code.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -57,8 +57,8 @@ inline redirect_error_t<decay_t<CompletionToken>> redirect_error(
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/redirect_error.hpp"
+#include "deps/asio/impl/redirect_error.hpp"
 
 #endif // ASIO_REDIRECT_ERROR_HPP

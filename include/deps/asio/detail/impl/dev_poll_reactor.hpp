@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_DEV_POLL)
 
-#include "asio/detail/scheduler.hpp"
+#include "deps/asio/detail/scheduler.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -104,7 +104,7 @@ void dev_poll_reactor::move_timer(timer_queue<Time_Traits>& queue,
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // defined(ASIO_HAS_DEV_POLL)
 

@@ -15,32 +15,32 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_WINDOWS) \
   && !defined(ASIO_WINDOWS_RUNTIME) \
   && !defined(__CYGWIN__) \
   && !defined(ASIO_HAS_IO_URING_AS_DEFAULT)
 
-#include "asio/associated_cancellation_slot.hpp"
-#include "asio/associated_immediate_executor.hpp"
-#include "asio/buffer.hpp"
-#include "asio/cancellation_type.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/detail/bind_handler.hpp"
-#include "asio/detail/buffer_sequence_adapter.hpp"
-#include "asio/detail/descriptor_ops.hpp"
-#include "asio/detail/descriptor_read_op.hpp"
-#include "asio/detail/descriptor_write_op.hpp"
-#include "asio/detail/fenced_block.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/noncopyable.hpp"
-#include "asio/detail/reactive_null_buffers_op.hpp"
-#include "asio/detail/reactive_wait_op.hpp"
-#include "asio/detail/reactor.hpp"
-#include "asio/posix/descriptor_base.hpp"
+#include "deps/asio/associated_cancellation_slot.hpp"
+#include "deps/asio/associated_immediate_executor.hpp"
+#include "deps/asio/buffer.hpp"
+#include "deps/asio/cancellation_type.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/detail/bind_handler.hpp"
+#include "deps/asio/detail/buffer_sequence_adapter.hpp"
+#include "deps/asio/detail/descriptor_ops.hpp"
+#include "deps/asio/detail/descriptor_read_op.hpp"
+#include "deps/asio/detail/descriptor_write_op.hpp"
+#include "deps/asio/detail/fenced_block.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/noncopyable.hpp"
+#include "deps/asio/detail/reactive_null_buffers_op.hpp"
+#include "deps/asio/detail/reactive_wait_op.hpp"
+#include "deps/asio/detail/reactor.hpp"
+#include "deps/asio/posix/descriptor_base.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -552,10 +552,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/reactive_descriptor_service.ipp"
+# include "deps/asio/detail/impl/reactive_descriptor_service.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // !defined(ASIO_WINDOWS)

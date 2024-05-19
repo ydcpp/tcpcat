@@ -16,20 +16,20 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_KQUEUE)
 
-#include "asio/detail/kqueue_reactor.hpp"
-#include "asio/detail/scheduler.hpp"
-#include "asio/detail/throw_error.hpp"
-#include "asio/error.hpp"
+#include "deps/asio/detail/kqueue_reactor.hpp"
+#include "deps/asio/detail/scheduler.hpp"
+#include "deps/asio/detail/throw_error.hpp"
+#include "deps/asio/error.hpp"
 
 #if defined(__NetBSD__)
 # include <sys/param.h>
 #endif
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 #if defined(__NetBSD__) && __NetBSD_Version__ < 999001500
 # define ASIO_KQUEUE_EV_SET(ev, ident, filt, flags, fflags, data, udata) \
@@ -601,7 +601,7 @@ timespec* kqueue_reactor::get_timeout(long usec, timespec& ts)
 
 #undef ASIO_KQUEUE_EV_SET
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // defined(ASIO_HAS_KQUEUE)
 

@@ -15,24 +15,24 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/event.hpp"
-#include "asio/detail/mutex.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/execution/executor.hpp"
-#include "asio/is_applicable_property.hpp"
-#include "asio/prefer.hpp"
-#include "asio/query.hpp"
-#include "asio/require.hpp"
-#include "asio/traits/prefer_member.hpp"
-#include "asio/traits/query_free.hpp"
-#include "asio/traits/query_member.hpp"
-#include "asio/traits/query_static_constexpr_member.hpp"
-#include "asio/traits/require_member.hpp"
-#include "asio/traits/static_query.hpp"
-#include "asio/traits/static_require.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/event.hpp"
+#include "deps/asio/detail/mutex.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/execution/executor.hpp"
+#include "deps/asio/is_applicable_property.hpp"
+#include "deps/asio/prefer.hpp"
+#include "deps/asio/query.hpp"
+#include "deps/asio/require.hpp"
+#include "deps/asio/traits/prefer_member.hpp"
+#include "deps/asio/traits/query_free.hpp"
+#include "deps/asio/traits/query_member.hpp"
+#include "deps/asio/traits/query_static_constexpr_member.hpp"
+#include "deps/asio/traits/require_member.hpp"
+#include "deps/asio/traits/static_query.hpp"
+#include "deps/asio/traits/static_require.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -1075,6 +1075,6 @@ struct prefer_member<
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXECUTION_BLOCKING_ADAPTATION_HPP

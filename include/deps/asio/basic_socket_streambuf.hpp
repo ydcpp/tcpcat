@@ -15,29 +15,29 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_NO_IOSTREAM)
 
 #include <streambuf>
 #include <vector>
-#include "asio/basic_socket.hpp"
-#include "asio/basic_stream_socket.hpp"
-#include "asio/detail/buffer_sequence_adapter.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/throw_error.hpp"
-#include "asio/io_context.hpp"
+#include "deps/asio/basic_socket.hpp"
+#include "deps/asio/basic_stream_socket.hpp"
+#include "deps/asio/detail/buffer_sequence_adapter.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/throw_error.hpp"
+#include "deps/asio/io_context.hpp"
 
 #if defined(ASIO_HAS_BOOST_DATE_TIME) \
   && defined(ASIO_USE_BOOST_DATE_TIME_FOR_SOCKET_IOSTREAM)
-# include "asio/detail/deadline_timer_service.hpp"
+# include "deps/asio/detail/deadline_timer_service.hpp"
 #else // defined(ASIO_HAS_BOOST_DATE_TIME)
       // && defined(ASIO_USE_BOOST_DATE_TIME_FOR_SOCKET_IOSTREAM)
-# include "asio/steady_timer.hpp"
+# include "deps/asio/steady_timer.hpp"
 #endif // defined(ASIO_HAS_BOOST_DATE_TIME)
        // && defined(ASIO_USE_BOOST_DATE_TIME_FOR_SOCKET_IOSTREAM)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -635,7 +635,7 @@ private:
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // !defined(ASIO_NO_IOSTREAM)
 

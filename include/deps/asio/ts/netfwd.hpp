@@ -15,22 +15,22 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/chrono.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/chrono.hpp"
 
 #if defined(ASIO_HAS_BOOST_DATE_TIME)
-# include "asio/detail/date_time_fwd.hpp"
+# include "deps/asio/detail/date_time_fwd.hpp"
 #endif // defined(ASIO_HAS_BOOST_DATE_TIME)
 
 #if !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
-#include "asio/execution/blocking.hpp"
-#include "asio/execution/outstanding_work.hpp"
-#include "asio/execution/relationship.hpp"
+#include "deps/asio/execution/blocking.hpp"
+#include "deps/asio/execution/outstanding_work.hpp"
+#include "deps/asio/execution/relationship.hpp"
 #endif // !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
 
 #if !defined(GENERATING_DOCUMENTATION)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -229,7 +229,7 @@ class udp;
 } // namespace ip
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // !defined(GENERATING_DOCUMENTATION)
 

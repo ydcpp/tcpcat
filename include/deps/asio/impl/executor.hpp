@@ -15,18 +15,18 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if !defined(ASIO_NO_TS_EXECUTORS)
 
 #include <new>
-#include "asio/detail/atomic_count.hpp"
-#include "asio/detail/global.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/executor.hpp"
-#include "asio/system_executor.hpp"
+#include "deps/asio/detail/atomic_count.hpp"
+#include "deps/asio/detail/global.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/executor.hpp"
+#include "deps/asio/system_executor.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -310,7 +310,7 @@ const Executor* executor::target() const noexcept
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // !defined(ASIO_NO_TS_EXECUTORS)
 

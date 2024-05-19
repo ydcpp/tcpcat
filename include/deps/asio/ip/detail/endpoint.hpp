@@ -15,14 +15,14 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <string>
-#include "asio/detail/socket_types.hpp"
-#include "asio/detail/winsock_init.hpp"
-#include "asio/error_code.hpp"
-#include "asio/ip/address.hpp"
+#include "deps/asio/detail/socket_types.hpp"
+#include "deps/asio/detail/winsock_init.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/ip/address.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace ip {
@@ -132,10 +132,10 @@ private:
 } // namespace ip
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/ip/detail/impl/endpoint.ipp"
+# include "deps/asio/ip/detail/impl/endpoint.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_IP_DETAIL_ENDPOINT_HPP

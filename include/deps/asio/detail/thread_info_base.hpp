@@ -15,18 +15,18 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <climits>
 #include <cstddef>
-#include "asio/detail/memory.hpp"
-#include "asio/detail/noncopyable.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/noncopyable.hpp"
 
 #if !defined(ASIO_NO_EXCEPTIONS)
 # include <exception>
-# include "asio/multiple_exceptions.hpp"
+# include "deps/asio/multiple_exceptions.hpp"
 #endif // !defined(ASIO_NO_EXCEPTIONS)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -245,6 +245,6 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_DETAIL_THREAD_INFO_BASE_HPP

@@ -15,11 +15,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/error_code.hpp"
-#include "asio/ssl/detail/openssl_types.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/ssl/detail/openssl_types.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace error {
@@ -114,10 +114,10 @@ inline asio::error_code make_error_code(stream_errors e)
 } // namespace ssl
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/ssl/impl/error.ipp"
+# include "deps/asio/ssl/impl/error.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_SSL_ERROR_HPP

@@ -15,7 +15,7 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 namespace asio {
 
@@ -26,13 +26,13 @@ class execution_context;
 #if defined(ASIO_CUSTOM_HANDLER_TRACKING)
 # include ASIO_CUSTOM_HANDLER_TRACKING
 #elif defined(ASIO_ENABLE_HANDLER_TRACKING)
-# include "asio/error_code.hpp"
-# include "asio/detail/cstdint.hpp"
-# include "asio/detail/static_mutex.hpp"
-# include "asio/detail/tss_ptr.hpp"
+# include "deps/asio/error_code.hpp"
+# include "deps/asio/detail/cstdint.hpp"
+# include "deps/asio/detail/static_mutex.hpp"
+# include "deps/asio/detail/tss_ptr.hpp"
 #endif // defined(ASIO_ENABLE_HANDLER_TRACKING)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -255,10 +255,10 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/handler_tracking.ipp"
+# include "deps/asio/detail/impl/handler_tracking.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_DETAIL_HANDLER_TRACKING_HPP

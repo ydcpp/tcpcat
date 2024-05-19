@@ -15,11 +15,11 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/scoped_ptr.hpp"
-#include "asio/detail/service_registry.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/scoped_ptr.hpp"
+#include "deps/asio/detail/service_registry.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -72,6 +72,6 @@ inline execution_context& execution_context::service::context()
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_IMPL_EXECUTION_CONTEXT_HPP

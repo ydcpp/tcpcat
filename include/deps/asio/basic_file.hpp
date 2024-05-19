@@ -15,32 +15,32 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_FILE) \
   || defined(GENERATING_DOCUMENTATION)
 
 #include <string>
 #include <utility>
-#include "asio/any_io_executor.hpp"
-#include "asio/async_result.hpp"
-#include "asio/detail/cstdint.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/io_object_impl.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/throw_error.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/post.hpp"
-#include "asio/file_base.hpp"
+#include "deps/asio/any_io_executor.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/detail/cstdint.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/io_object_impl.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/throw_error.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/post.hpp"
+#include "deps/asio/file_base.hpp"
 #if defined(ASIO_HAS_IOCP)
-# include "asio/detail/win_iocp_file_service.hpp"
+# include "deps/asio/detail/win_iocp_file_service.hpp"
 #elif defined(ASIO_HAS_IO_URING)
-# include "asio/detail/io_uring_file_service.hpp"
+# include "deps/asio/detail/io_uring_file_service.hpp"
 #endif
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -816,7 +816,7 @@ private:
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // defined(ASIO_HAS_FILE)
        //   || defined(GENERATING_DOCUMENTATION)

@@ -15,14 +15,14 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/cancellation_signal.hpp"
-#include "asio/detail/utility.hpp"
-#include "asio/error.hpp"
-#include "asio/system_error.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/cancellation_signal.hpp"
+#include "deps/asio/detail/utility.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/system_error.hpp"
 #include <tuple>
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -250,6 +250,6 @@ struct promise_handler<void(Ts...), Executor, Allocator>
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_IMPL_PROMISE_HPP

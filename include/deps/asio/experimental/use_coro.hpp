@@ -16,12 +16,12 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <memory>
-#include "asio/deferred.hpp"
-#include "asio/detail/source_location.hpp"
+#include "deps/asio/deferred.hpp"
+#include "deps/asio/detail/source_location.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -181,9 +181,9 @@ constexpr use_coro_t<> use_coro(0, 0, 0);
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/experimental/impl/use_coro.hpp"
-#include "asio/experimental/coro.hpp"
+#include "deps/asio/experimental/impl/use_coro.hpp"
+#include "deps/asio/experimental/coro.hpp"
 
 #endif // ASIO_EXPERIMENTAL_USE_CORO_HPP

@@ -16,29 +16,29 @@
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
 #include <utility>
-#include "asio/detail/config.hpp"
-#include "asio/any_io_executor.hpp"
-#include "asio/basic_socket.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/io_object_impl.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/throw_error.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/socket_base.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/any_io_executor.hpp"
+#include "deps/asio/basic_socket.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/io_object_impl.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/throw_error.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/socket_base.hpp"
 
 #if defined(ASIO_WINDOWS_RUNTIME)
-# include "asio/detail/null_socket_service.hpp"
+# include "deps/asio/detail/null_socket_service.hpp"
 #elif defined(ASIO_HAS_IOCP)
-# include "asio/detail/win_iocp_socket_service.hpp"
+# include "deps/asio/detail/win_iocp_socket_service.hpp"
 #elif defined(ASIO_HAS_IO_URING_AS_DEFAULT)
-# include "asio/detail/io_uring_socket_service.hpp"
+# include "deps/asio/detail/io_uring_socket_service.hpp"
 #else
-# include "asio/detail/reactive_socket_service.hpp"
+# include "deps/asio/detail/reactive_socket_service.hpp"
 #endif
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -2703,6 +2703,6 @@ private:
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_BASIC_SOCKET_ACCEPTOR_HPP

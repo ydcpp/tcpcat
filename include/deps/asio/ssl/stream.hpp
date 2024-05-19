@@ -15,26 +15,26 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
-#include "asio/async_result.hpp"
-#include "asio/buffer.hpp"
-#include "asio/detail/buffer_sequence_adapter.hpp"
-#include "asio/detail/handler_type_requirements.hpp"
-#include "asio/detail/non_const_lvalue.hpp"
-#include "asio/detail/noncopyable.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/ssl/context.hpp"
-#include "asio/ssl/detail/buffered_handshake_op.hpp"
-#include "asio/ssl/detail/handshake_op.hpp"
-#include "asio/ssl/detail/io.hpp"
-#include "asio/ssl/detail/read_op.hpp"
-#include "asio/ssl/detail/shutdown_op.hpp"
-#include "asio/ssl/detail/stream_core.hpp"
-#include "asio/ssl/detail/write_op.hpp"
-#include "asio/ssl/stream_base.hpp"
+#include "deps/asio/async_result.hpp"
+#include "deps/asio/buffer.hpp"
+#include "deps/asio/detail/buffer_sequence_adapter.hpp"
+#include "deps/asio/detail/handler_type_requirements.hpp"
+#include "deps/asio/detail/non_const_lvalue.hpp"
+#include "deps/asio/detail/noncopyable.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/ssl/context.hpp"
+#include "deps/asio/ssl/detail/buffered_handshake_op.hpp"
+#include "deps/asio/ssl/detail/handshake_op.hpp"
+#include "deps/asio/ssl/detail/io.hpp"
+#include "deps/asio/ssl/detail/read_op.hpp"
+#include "deps/asio/ssl/detail/shutdown_op.hpp"
+#include "deps/asio/ssl/detail/stream_core.hpp"
+#include "deps/asio/ssl/detail/write_op.hpp"
+#include "deps/asio/ssl/stream_base.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace ssl {
@@ -1037,6 +1037,6 @@ private:
 } // namespace ssl
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_SSL_STREAM_HPP

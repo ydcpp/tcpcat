@@ -16,20 +16,20 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/any_io_executor.hpp"
-#include "asio/associated_cancellation_slot.hpp"
-#include "asio/associated_executor.hpp"
-#include "asio/bind_executor.hpp"
-#include "asio/cancellation_signal.hpp"
-#include "asio/dispatch.hpp"
-#include "asio/experimental/impl/promise.hpp"
-#include "asio/post.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/any_io_executor.hpp"
+#include "deps/asio/associated_cancellation_slot.hpp"
+#include "deps/asio/associated_executor.hpp"
+#include "deps/asio/bind_executor.hpp"
+#include "deps/asio/cancellation_signal.hpp"
+#include "deps/asio/dispatch.hpp"
+#include "deps/asio/experimental/impl/promise.hpp"
+#include "deps/asio/post.hpp"
 
 #include <algorithm>
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -219,6 +219,6 @@ private:
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_EXPERIMENTAL_PROMISE_HPP

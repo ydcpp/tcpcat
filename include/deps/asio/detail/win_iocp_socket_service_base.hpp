@@ -15,35 +15,35 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_IOCP)
 
-#include "asio/associated_cancellation_slot.hpp"
-#include "asio/error.hpp"
-#include "asio/execution_context.hpp"
-#include "asio/socket_base.hpp"
-#include "asio/detail/bind_handler.hpp"
-#include "asio/detail/buffer_sequence_adapter.hpp"
-#include "asio/detail/fenced_block.hpp"
-#include "asio/detail/handler_alloc_helpers.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/mutex.hpp"
-#include "asio/detail/operation.hpp"
-#include "asio/detail/reactor_op.hpp"
-#include "asio/detail/select_reactor.hpp"
-#include "asio/detail/socket_holder.hpp"
-#include "asio/detail/socket_ops.hpp"
-#include "asio/detail/socket_types.hpp"
-#include "asio/detail/win_iocp_io_context.hpp"
-#include "asio/detail/win_iocp_null_buffers_op.hpp"
-#include "asio/detail/win_iocp_socket_connect_op.hpp"
-#include "asio/detail/win_iocp_socket_send_op.hpp"
-#include "asio/detail/win_iocp_socket_recv_op.hpp"
-#include "asio/detail/win_iocp_socket_recvmsg_op.hpp"
-#include "asio/detail/win_iocp_wait_op.hpp"
+#include "deps/asio/associated_cancellation_slot.hpp"
+#include "deps/asio/error.hpp"
+#include "deps/asio/execution_context.hpp"
+#include "deps/asio/socket_base.hpp"
+#include "deps/asio/detail/bind_handler.hpp"
+#include "deps/asio/detail/buffer_sequence_adapter.hpp"
+#include "deps/asio/detail/fenced_block.hpp"
+#include "deps/asio/detail/handler_alloc_helpers.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/mutex.hpp"
+#include "deps/asio/detail/operation.hpp"
+#include "deps/asio/detail/reactor_op.hpp"
+#include "deps/asio/detail/select_reactor.hpp"
+#include "deps/asio/detail/socket_holder.hpp"
+#include "deps/asio/detail/socket_ops.hpp"
+#include "deps/asio/detail/socket_types.hpp"
+#include "deps/asio/detail/win_iocp_io_context.hpp"
+#include "deps/asio/detail/win_iocp_null_buffers_op.hpp"
+#include "deps/asio/detail/win_iocp_socket_connect_op.hpp"
+#include "deps/asio/detail/win_iocp_socket_send_op.hpp"
+#include "deps/asio/detail/win_iocp_socket_recv_op.hpp"
+#include "deps/asio/detail/win_iocp_socket_recvmsg_op.hpp"
+#include "deps/asio/detail/win_iocp_wait_op.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -818,10 +818,10 @@ protected:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/win_iocp_socket_service_base.ipp"
+# include "deps/asio/detail/impl/win_iocp_socket_service_base.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // defined(ASIO_HAS_IOCP)

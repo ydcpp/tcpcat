@@ -15,8 +15,8 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/type_traits.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/type_traits.hpp"
 
 #if defined(ASIO_HAS_WORKING_EXPRESSION_SFINAE)
 # define ASIO_HAS_DEDUCED_EQUALITY_COMPARABLE_TRAIT 1

@@ -15,21 +15,21 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/associated_allocator.hpp"
-#include "asio/associated_executor.hpp"
-#include "asio/associated_immediate_executor.hpp"
-#include "asio/detail/initiate_dispatch.hpp"
-#include "asio/detail/type_traits.hpp"
-#include "asio/detail/work_dispatcher.hpp"
-#include "asio/execution/allocator.hpp"
-#include "asio/execution/blocking.hpp"
-#include "asio/execution/executor.hpp"
-#include "asio/execution/outstanding_work.hpp"
-#include "asio/executor_work_guard.hpp"
-#include "asio/prefer.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/associated_allocator.hpp"
+#include "deps/asio/associated_executor.hpp"
+#include "deps/asio/associated_immediate_executor.hpp"
+#include "deps/asio/detail/initiate_dispatch.hpp"
+#include "deps/asio/detail/type_traits.hpp"
+#include "deps/asio/detail/work_dispatcher.hpp"
+#include "deps/asio/execution/allocator.hpp"
+#include "deps/asio/execution/blocking.hpp"
+#include "deps/asio/execution/executor.hpp"
+#include "deps/asio/execution/outstanding_work.hpp"
+#include "deps/asio/executor_work_guard.hpp"
+#include "deps/asio/prefer.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -506,6 +506,6 @@ private:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_DETAIL_HANDLER_WORK_HPP

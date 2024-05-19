@@ -15,20 +15,20 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_CO_AWAIT) || defined(GENERATING_DOCUMENTATION)
 
-#include "asio/awaitable.hpp"
-#include "asio/detail/handler_tracking.hpp"
+#include "deps/asio/awaitable.hpp"
+#include "deps/asio/detail/handler_tracking.hpp"
 
 #if defined(ASIO_ENABLE_HANDLER_TRACKING)
 # if defined(ASIO_HAS_SOURCE_LOCATION)
-#  include "asio/detail/source_location.hpp"
+#  include "deps/asio/detail/source_location.hpp"
 # endif // defined(ASIO_HAS_SOURCE_LOCATION)
 #endif // defined(ASIO_ENABLE_HANDLER_TRACKING)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -152,9 +152,9 @@ constexpr use_awaitable_t<> use_awaitable(0, 0, 0);
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/impl/use_awaitable.hpp"
+#include "deps/asio/impl/use_awaitable.hpp"
 
 #endif // defined(ASIO_HAS_CO_AWAIT) || defined(GENERATING_DOCUMENTATION)
 

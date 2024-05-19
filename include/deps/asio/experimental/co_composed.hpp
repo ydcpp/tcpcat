@@ -15,10 +15,10 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/async_result.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/async_result.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace experimental {
@@ -138,8 +138,8 @@ auto co_composed(Implementation&& implementation,
 } // namespace experimental
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/experimental/impl/co_composed.hpp"
+#include "deps/asio/experimental/impl/co_composed.hpp"
 
 #endif // ASIO_EXPERIMENTAL_CO_COMPOSED_HPP

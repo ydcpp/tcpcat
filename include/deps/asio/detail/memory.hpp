@@ -15,13 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <cstddef>
 #include <cstdlib>
 #include <memory>
 #include <new>
-#include "asio/detail/cstdint.hpp"
-#include "asio/detail/throw_exception.hpp"
+#include "deps/asio/detail/cstdint.hpp"
+#include "deps/asio/detail/throw_exception.hpp"
 
 #if !defined(ASIO_HAS_STD_ALIGNED_ALLOC) \
   && defined(ASIO_HAS_BOOST_ALIGN)

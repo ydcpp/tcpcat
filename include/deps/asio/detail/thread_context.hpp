@@ -17,9 +17,9 @@
 
 #include <climits>
 #include <cstddef>
-#include "asio/detail/call_stack.hpp"
+#include "deps/asio/detail/call_stack.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -42,10 +42,10 @@ protected:
 } // namespace detail
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/detail/impl/thread_context.ipp"
+# include "deps/asio/detail/impl/thread_context.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_DETAIL_THREAD_CONTEXT_HPP

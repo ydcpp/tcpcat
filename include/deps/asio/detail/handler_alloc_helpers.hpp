@@ -15,14 +15,14 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
-#include "asio/detail/memory.hpp"
-#include "asio/detail/noncopyable.hpp"
-#include "asio/detail/recycling_allocator.hpp"
-#include "asio/detail/thread_info_base.hpp"
-#include "asio/associated_allocator.hpp"
+#include "deps/asio/detail/config.hpp"
+#include "deps/asio/detail/memory.hpp"
+#include "deps/asio/detail/noncopyable.hpp"
+#include "deps/asio/detail/recycling_allocator.hpp"
+#include "deps/asio/detail/thread_info_base.hpp"
+#include "deps/asio/associated_allocator.hpp"
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace detail {
@@ -220,6 +220,6 @@ struct get_default_allocator<std::allocator<T>>
       ::asio::detail::thread_info_base::default_tag, op ) \
   /**/
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #endif // ASIO_DETAIL_HANDLER_ALLOC_HELPERS_HPP

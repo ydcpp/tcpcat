@@ -15,15 +15,15 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #if defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
-# include "asio/executor.hpp"
+# include "deps/asio/executor.hpp"
 #else // defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
-# include "asio/execution.hpp"
-# include "asio/execution_context.hpp"
+# include "deps/asio/execution.hpp"
+# include "deps/asio/execution_context.hpp"
 #endif // defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 
@@ -340,11 +340,11 @@ struct prefer_member<any_io_executor, Prop> :
 
 } // namespace asio
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
 #if defined(ASIO_HEADER_ONLY) \
   && !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
-# include "asio/impl/any_io_executor.ipp"
+# include "deps/asio/impl/any_io_executor.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
        //   && !defined(ASIO_USE_TS_EXECUTOR_AS_DEFAULT)
 

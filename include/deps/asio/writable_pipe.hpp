@@ -15,12 +15,12 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 
 #if defined(ASIO_HAS_PIPE) \
   || defined(GENERATING_DOCUMENTATION)
 
-#include "asio/basic_writable_pipe.hpp"
+#include "deps/asio/basic_writable_pipe.hpp"
 
 namespace asio {
 

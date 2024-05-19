@@ -15,22 +15,22 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include "asio/detail/config.hpp"
+#include "deps/asio/detail/config.hpp"
 #include <functional>
 #include <string>
-#include "asio/detail/array.hpp"
-#include "asio/detail/cstdint.hpp"
-#include "asio/detail/socket_types.hpp"
-#include "asio/detail/string_view.hpp"
-#include "asio/detail/winsock_init.hpp"
-#include "asio/error_code.hpp"
-#include "asio/ip/address_v4.hpp"
+#include "deps/asio/detail/array.hpp"
+#include "deps/asio/detail/cstdint.hpp"
+#include "deps/asio/detail/socket_types.hpp"
+#include "deps/asio/detail/string_view.hpp"
+#include "deps/asio/detail/winsock_init.hpp"
+#include "deps/asio/error_code.hpp"
+#include "deps/asio/ip/address_v4.hpp"
 
 #if !defined(ASIO_NO_IOSTREAM)
 # include <iosfwd>
 #endif // !defined(ASIO_NO_IOSTREAM)
 
-#include "asio/detail/push_options.hpp"
+#include "deps/asio/detail/push_options.hpp"
 
 namespace asio {
 namespace ip {
@@ -397,11 +397,11 @@ private:
 
 } // namespace std
 
-#include "asio/detail/pop_options.hpp"
+#include "deps/asio/detail/pop_options.hpp"
 
-#include "asio/ip/impl/address_v6.hpp"
+#include "deps/asio/ip/impl/address_v6.hpp"
 #if defined(ASIO_HEADER_ONLY)
-# include "asio/ip/impl/address_v6.ipp"
+# include "deps/asio/ip/impl/address_v6.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_IP_ADDRESS_V6_HPP
