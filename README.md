@@ -126,6 +126,11 @@ cmake --build build --config Release
 
 **Note:** If you want to build with unit tests, add `-DENABLE_TESTS=ON` to CMake configure command.
 
+### Install
+~~~shell
+cmake --install build
+~~~
+
 ## Build with Conan (Windows/Linux/MacOS)
 ### Creating tcpcat package in conan local cache
 ~~~shell
@@ -179,7 +184,7 @@ Add these lines after declaring the target in CMakeLists.
 **CMakeLists.txt**
 ```cmake
 find_package(tcpcat)
-target_link_libraries(<your_target> tcpcat::tcpcat)
+target_link_libraries(<your_target> tcpcat)
 ```
 
 Make sure to edit `<your_target>` with the actual target name.

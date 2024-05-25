@@ -1,8 +1,10 @@
 from conan import ConanFile
+from conan.errors import ConanInvalidConfiguration
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
-from conan.tools.files import copy
+from conan.tools.files import copy, get
 from conan.tools.build import check_min_cppstd
-from os.path import join
+from conan.tools.scm import Version
+import os
 
 class tcpcatRecipe(ConanFile):
     name = "tcpcat"
@@ -12,7 +14,6 @@ class tcpcatRecipe(ConanFile):
     # Optional metadata
     license = "MIT"
     author = "ydemir9191@gmail.com"
-    url = "https://github.com/ydcpp/tcpcat"
     homepage = "https://github.com/ydcpp/tcpcat"
     description = "Simple C++ TCP Server and Client library."
     topics = ("network", "tcp", "tcp server", "tcp client")
@@ -52,10 +53,11 @@ class tcpcatRecipe(ConanFile):
         cmake.build()
 
     def package(self):
-        copy(self, "*", src=join(self.source_folder, "include"), dst=join(self.package_folder, "include"))
+        copy(self, "*", src=os.path.join(self.source_folder, "include"), dst=os.path.join(self.package_folder, "include"))
         cmake = CMake(self)
         cmake.install()
 
     def package_info(self):
         self.cpp_info.libs = ["tcpcat"]
+        self.cpp_info.set_property("cmake_target_name", "tcpcat")
 
