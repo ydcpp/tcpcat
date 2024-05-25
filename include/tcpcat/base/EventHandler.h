@@ -30,7 +30,7 @@
 #include <vector>
 #include <memory>
 
-#include "tcpcat/deps/asio.hpp"
+#include <asio.hpp>
 
 #include "TcpSession.h"
 

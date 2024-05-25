@@ -38,6 +38,9 @@ class tcpcatRecipe(ConanFile):
         if self.settings.compiler.get_safe("cppstd"):
             check_min_cppstd(self, 17)
 
+    def requirements(self):
+        self.requires("asio/[^1.30]", transitive_headers = True)
+
     def layout(self):
         cmake_layout(self)
 
