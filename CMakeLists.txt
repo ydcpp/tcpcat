@@ -26,3 +26,25 @@ if(${ENABLE_TESTS})
 endif()
 
 install(TARGETS tcpcat)
+
+# cppcheck static code analysis
+find_program(CPP_CHECK cppcheck)
+set(CPPCHECK_TEMPLATE "cppcheck: {file}:{line}: [{severity}]: {message}")
+
+add_custom_target(
+    cppcheck
+    COMMAND ${CPP_CHECK}
+    -j 4
+    --platform=win64
+    --enable=style,warning,performance,portability
+    --language=c++
+    --std=c++17
+    --error-exitcode=1
+    --max-configs=4
+    --max-ctu-depth=1
+    --template=${CPPCHECK_TEMPLATE}
+    --suppress=*:*deps*
+    -I ${CMAKE_SOURCE_DIR}/include
+    --cppcheck-build-dir=${CMAKE_SOURCE_DIR}/build
+    ${SRC_FILES}
+)
