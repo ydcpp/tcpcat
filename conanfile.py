@@ -8,7 +8,7 @@ import os
 
 class tcpcatRecipe(ConanFile):
     name = "tcpcat"
-    version = "1.0.1"
+    version = "1.0.2"
     package_type = "library"
 
     # Optional metadata
