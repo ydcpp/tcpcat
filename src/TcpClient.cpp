@@ -30,11 +30,10 @@ TcpClient::~TcpClient()
 {
     ctx_.stop();
     if (connected_) {
-        connected_ = false;
         if (socket_->is_open()) {
-            socket_->shutdown(asio::ip::tcp::socket::shutdown_send);
             socket_->close();
         }
+        connected_ = false;
     }
 
     if (ctxRunner_.joinable()) {
