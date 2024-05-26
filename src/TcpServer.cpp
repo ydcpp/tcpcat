@@ -23,6 +23,8 @@
 
 #include "tcpcat/base/TcpServer.h"
 
+#include <asio.hpp>
+
 #include <iostream>
 
 namespace tcpcat

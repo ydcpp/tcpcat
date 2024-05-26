@@ -35,7 +35,8 @@
 #include <condition_variable>
 #include <unordered_map>
 
-#include <asio.hpp>
+#include <asio/io_context.hpp>
+#include <asio/ip/tcp.hpp>
 
 #include "TcpSession.h"
 #include "EventHandler.h"
