@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(PROJECT_VER 1.0.0)
+set(PROJECT_VER 1.0.2)
 set(PROJECT_NAME "tcpcat")
 project(${PROJECT_NAME} LANGUAGES CXX
                         VERSION ${PROJECT_VER}
