@@ -23,6 +23,8 @@
 
 #include "tcpcat/base/TcpSession.h"
 
+#include <asio.hpp>
+
 #include "tcpcat/base/EventHandler.h"
 
 namespace tcpcat

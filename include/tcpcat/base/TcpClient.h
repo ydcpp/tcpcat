@@ -33,7 +33,8 @@
 #include <thread>
 #include <memory>
 
-#include <asio.hpp>
+#include <asio/io_context.hpp>
+#include <asio/ip/tcp.hpp>
 
 #include "TcpSession.h"
 #include "EventHandler.h"
