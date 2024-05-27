@@ -49,13 +49,14 @@ TcpServer::~TcpServer()
 }
 
 TcpServer::TcpServer(const std::string &ip, uint16_t port, std::shared_ptr<EventHandler> handler, size_t bufferSize, uint8_t threadCount) :
-    ip_(ip),
-    port_(port),
+    running_(false),
     ctx_(),
     ctxWork_(ctx_),
     endpoint_({}, port),
     acceptor_(ctx_, endpoint_),
     threadPoolSize_(threadCount == 0 ? 1 : threadCount),
+    ip_(ip),
+    port_(port),
     handler_(handler),
     buffSize_(bufferSize)
 {

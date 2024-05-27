@@ -31,11 +31,8 @@ namespace tcpcat
 TcpClient::~TcpClient()
 {
     ctx_.stop();
-    if (connected_) {
-        if (socket_->is_open()) {
-            socket_->close();
-        }
-        connected_ = false;
+    if (session_->IsConnected()) {
+        session_->Close();
     }
 
     if (ctxRunner_.joinable()) {
@@ -46,10 +43,10 @@ TcpClient::~TcpClient()
 TcpClient::TcpClient(const std::string &host, uint16_t port, std::shared_ptr<EventHandler> handler, size_t bufferSize) :
     host_(host),
     port_(port),
-    connected_(false),
     ctx_(),
     ctxWork_(ctx_),
     socket_(std::make_shared<asio::ip::tcp::socket>(ctx_)),
+    endpoint_(),
     ctxRunner_(std::thread([this]() { ctx_.run(); })),
     session_(std::make_shared<TcpSession>(socket_, handler, bufferSize))
 {
@@ -57,7 +54,7 @@ TcpClient::TcpClient(const std::string &host, uint16_t port, std::shared_ptr<Eve
 
 bool TcpClient::Connect()
 {
-    if (!connected_) {
+    if (!session_->IsConnected()) {
         asio::error_code err;
         const auto resolverResult = asio::ip::tcp::resolver(ctx_).resolve(host_, std::to_string(port_), err);
         if (err) {
@@ -69,12 +66,12 @@ bool TcpClient::Connect()
         HandleConnect(err);
     }
 
-    return connected_;
+    return session_->IsConnected();
 }
 
 void TcpClient::ConnectAsync()
 {
-    if (!connected_) {
+    if (!session_->IsConnected()) {
         asio::error_code err;
         const auto resolverResult = asio::ip::tcp::resolver(ctx_).resolve(host_, std::to_string(port_), err);
         if (err) {
@@ -88,8 +85,7 @@ void TcpClient::ConnectAsync()
 
 void TcpClient::Disconnect()
 {
-    if (connected_) {
-        connected_ = false;
+    if (session_->IsConnected()) {
         session_->Close();
     }
 }
@@ -101,7 +97,7 @@ size_t TcpClient::Send(const std::vector<unsigned char> &data)
 
 size_t TcpClient::Send(const std::vector<unsigned char> &data, size_t offset, size_t size)
 {
-    if (!connected_) {
+    if (!session_->IsConnected()) {
         return 0;
     }
 
@@ -130,16 +126,14 @@ uint16_t TcpClient::GetPort() const
 
 bool TcpClient::IsConnected() const
 {
-    return connected_;
+    return session_->IsConnected();
 }
 
 void TcpClient::HandleConnect(const asio::error_code &err)
 {
     if (err) {
-        connected_ = false;
         session_->OnError(err);
     } else {
-        connected_ = true;
         session_->OnConnected();
         session_->Listen();
     }

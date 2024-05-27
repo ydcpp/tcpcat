@@ -29,7 +29,6 @@
 
 #include <string>
 #include <vector>
-#include <atomic>
 #include <thread>
 #include <memory>
 
@@ -103,7 +102,6 @@ public:
 private:
     std::string host_;
     uint16_t port_;
-    std::atomic<bool> connected_;
     asio::io_context ctx_;
     asio::io_context::work ctxWork_;
     std::shared_ptr<asio::ip::tcp::socket> socket_;

@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(PROJECT_VER 1.0.2)
-set(PROJECT_NAME "tcpcat")
+set(PROJECT_VER 1.0.4)
+set(PROJECT_NAME "ydcpp-tcpcat")
 project(${PROJECT_NAME} LANGUAGES CXX
                         VERSION ${PROJECT_VER}
                         DESCRIPTION "C++ TCP Server and Client library.")
@@ -16,14 +13,15 @@ file(GLOB_RECURSE HDR_FILES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/includ
 
 add_library(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE ${SRC_FILES} ${HDR_FILES})
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 find_package(asio CONFIG)
 if(asio_FOUND)
-    message("Using system installed ASIO headers.")
+    message("tcpcat: Using system installed ASIO headers.")
     target_link_libraries(${PROJECT_NAME} asio::asio)
 else()
-    message("Using project local ASIO headers in 'deps/asio'.")
+    message("tcpcat: Using project local ASIO headers in 'deps/asio'.")
     target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/deps/asio)
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/deps/asio/ DESTINATION include)
 endif()
@@ -35,32 +33,10 @@ if(${ENABLE_TESTS})
     add_subdirectory(test)
 endif()
 
-install (TARGETS tcpcat
+install (TARGETS ${PROJECT_NAME}
          PUBLIC_HEADER DESTINATION include
          ARCHIVE DESTINATION lib
          LIBRARY DESTINATION lib
          RUNTIME DESTINATION bin)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/tcpcat DESTINATION include)
-
-# cppcheck static code analysis
-find_program(CPP_CHECK cppcheck)
-set(CPPCHECK_TEMPLATE "cppcheck: {file}:{line}: [{severity}]: {message}")
-
-add_custom_target(
-    cppcheck
-    COMMAND ${CPP_CHECK}
-    -j 4
-    --platform=win64
-    --enable=style,warning,performance,portability
-    --language=c++
-    --std=c++17
-    --error-exitcode=1
-    --max-configs=4
-    --max-ctu-depth=1
-    --template=${CPPCHECK_TEMPLATE}
-    --suppress=*:*deps*
-    -I ${CMAKE_SOURCE_DIR}/include
-    --cppcheck-build-dir=${CMAKE_SOURCE_DIR}/build
-    ${SRC_FILES}
-)

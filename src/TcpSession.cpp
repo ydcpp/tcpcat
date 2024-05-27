@@ -32,13 +32,17 @@ namespace tcpcat
 
 TcpSession::TcpSession(std::shared_ptr<asio::ip::tcp::socket> socket, std::shared_ptr<EventHandler> eventHandler, size_t buffSize) :
     socket_(socket),
+    connected_(false),
+    readBuffer_(buffSize == 0 ? 256 : buffSize),
     eventHandler_(eventHandler),
-    readBuffer_(buffSize == 0 ? 256 : buffSize)
+    remoteEndpoint_(),
+    id_(0)
 {
 }
 
 void TcpSession::OnConnected()
 {
+    connected_ = true;
     remoteEndpoint_ = socket_->remote_endpoint();
     id_ = std::hash<std::string>()(remoteEndpoint_.address().to_string() + std::to_string(remoteEndpoint_.port()));
     eventHandler_->OnConnected(shared_from_this());
@@ -59,10 +63,15 @@ asio::ip::tcp::endpoint TcpSession::RemoteEndpoint() const
     return remoteEndpoint_;
 }
 
+bool TcpSession::IsConnected() const
+{
+    return connected_;
+}
+
 void TcpSession::Close()
 {
+    connected_ = false;
     if (socket_->is_open()) {
-        socket_->shutdown(asio::ip::tcp::socket::shutdown_both);
         asio::error_code err;
         socket_->close(err);
         auto sharedThis = shared_from_this();
