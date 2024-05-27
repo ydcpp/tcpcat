@@ -136,7 +136,7 @@ cmake --install build
 ~~~shell
 conan create .
 ~~~
-Validate `tcpcat` package exists by using following command to list all installed packages in local conan cache:
+Validate `ydcpp-tcpcat` package exists by using following command to list all installed packages in local conan cache:
 ```
 conan list "*"
 ```
@@ -146,7 +146,7 @@ conan list "*"
 **conanfile.txt**
 ```
 [requires]
-tcpcat/[^1]
+ydcpp-tcpcat/[^1]
 
 [generators]
 CMakeDeps
@@ -166,7 +166,7 @@ class ExampleRecipe(ConanFile):
     generators = "CMakeDeps", "CMakeToolchain"
 
     def requirements(self):
-        self.requires("tcpcat/[^1]")
+        self.requires("ydcpp-tcpcat/[^1]")
 
     def layout(self):
         cmake_layout(self)
@@ -177,14 +177,14 @@ class ExampleRecipe(ConanFile):
 conan install . --build=missing
 ```
 
-3- Edit `CMakeLists.txt` of your project to link against libraries. In this case, we link to `tcpcat` library.
+3- Edit `CMakeLists.txt` of your project to link against libraries. In this case, we link to `ydcpp-tcpcat` library.
 
 Add these lines after declaring the target in CMakeLists.
 
 **CMakeLists.txt**
 ```cmake
-find_package(tcpcat)
-target_link_libraries(<your_target> tcpcat)
+find_package(ydcpp-tcpcat)
+target_link_libraries(<your_target> ydcpp-tcpcat)
 ```
 
 Make sure to edit `<your_target>` with the actual target name.

@@ -29,7 +29,7 @@
 
 #include <vector>
 #include <memory>
-#include <optional>
+#include <atomic>
 
 #include <asio/ip/tcp.hpp>
 
@@ -83,8 +83,13 @@ public:
     /// @return Returns peer endpoint information.
     asio::ip::tcp::endpoint RemoteEndpoint() const;
 
+    /// @brief Gets session connection state.
+    /// @return Returns true if connected, false otherwise.
+    bool IsConnected() const;
+
 private:
     std::shared_ptr<asio::ip::tcp::socket> socket_;
+    std::atomic<bool> connected_;
     std::vector<unsigned char> readBuffer_;
     std::shared_ptr<EventHandler> eventHandler_;
     asio::ip::tcp::endpoint remoteEndpoint_;

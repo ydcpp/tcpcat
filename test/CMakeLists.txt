@@ -23,7 +23,7 @@ add_executable(tcpcatTests)
 target_sources(tcpcatTests PRIVATE ${SRC_FILES} ${HDR_FILES})
 target_include_directories(tcpcatTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(tcpcatTests tcpcat)
+target_link_libraries(tcpcatTests ydcpp-tcpcat)
 target_link_libraries(tcpcatTests gtest gtest_main)
 
 add_test(NAME UT_tcpcat
