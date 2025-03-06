@@ -62,6 +62,12 @@ public:
     /// @param bytes Sent byte count.
     virtual void OnSent(std::shared_ptr<tcpcat::TcpSession> session, const std::vector<unsigned char> &buf, size_t bytes) {}
 
+    /// @brief Gets called when sent a message to peer.
+    /// @param session Session handle object.
+    /// @param buf Contains the sent bytes.
+    /// @param bytes Sent byte count.
+    virtual void OnSent(std::shared_ptr<tcpcat::TcpSession> session, const unsigned char* buf, size_t bytes) {}
+
     /// @brief Gets called when an error occurs.
     /// @param session Session handle object.
     /// @param err Error code object which holds error information.

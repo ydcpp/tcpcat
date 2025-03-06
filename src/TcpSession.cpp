@@ -95,6 +95,17 @@ size_t TcpSession::Send(const std::vector<unsigned char> &buffer, size_t offset,
     return sentBytes;
 }
 
+size_t TcpSession::Send(const unsigned char* buffer, size_t offset, size_t size)
+{
+    auto sharedThis = shared_from_this();
+
+    asio::error_code err;
+    const auto sentBytes = asio::write(*socket_, asio::buffer(buffer, offset + size), err);
+    sentBytes > 0 ? eventHandler_->OnSent(sharedThis, buffer, sentBytes) : eventHandler_->OnError(sharedThis, err);
+
+    return sentBytes;
+}
+
 void TcpSession::SendAsync(const std::vector<unsigned char> &buffer, size_t offset, size_t size)
 {
     auto sharedThis = shared_from_this();

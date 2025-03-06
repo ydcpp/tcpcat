@@ -9,7 +9,7 @@ import os
 
 class TcpcatConan(ConanFile):
     name = "ydcpp-tcpcat"
-    version = "1.0.4"
+    version = "1.0.5"
     package_type = "library"
 
     # Optional metadata
