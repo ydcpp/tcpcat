@@ -66,6 +66,13 @@ public:
     /// @return Returns the number of bytes sent.
     size_t Send(const std::vector<unsigned char> &buffer, size_t offset, size_t size);
 
+    /// @brief Sends data to the peer. Calls EventHandler->OnSent on success, EventHandler->OnError otherwise.
+    /// @param buffer Contains bytes to be sent.
+    /// @param offset Offset value from the beginning of `buffer`.
+    /// @param size Count of bytes to be sent starting from `offset`.
+    /// @return Returns the number of bytes sent.
+    size_t Send(const unsigned char* buffer, size_t offset, size_t size);
+
     /// @brief Sends data to the peer in non-blocking operation. Calls EventHandler->OnSent on success, EventHandler->OnError otherwise.
     /// @param buffer Contains bytes to be sent.
     /// @param offset Offset value from the beginning of `buffer`.
