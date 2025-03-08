@@ -78,6 +78,13 @@ public:
     /// @return Returns the number of bytes sent.
     size_t Send(const std::vector<unsigned char> &data, size_t offset, size_t size);
 
+    /// @brief Sends data to host. EventHandler->OnSent will be called on success.
+    /// @param data Buffer that holds the data to be sent.
+    /// @param offset Offset value from the beginning of `data`.
+    /// @param size Count of bytes to be sent starting from `offset`.
+    /// @return Returns the number of bytes sent.
+    size_t Send(const unsigned char *data, size_t offset, size_t size);
+
     /// @brief Sends data to host with non-blocking operation. EventHandler->OnSent will be called on success.
     /// @param data Buffer that holds the data to be sent.
     void SendAsync(const std::vector<unsigned char> &data);

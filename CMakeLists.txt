@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(PROJECT_VER 1.0.4)
+set(PROJECT_VER 1.0.5)
 set(PROJECT_NAME "ydcpp-tcpcat")
 project(${PROJECT_NAME} LANGUAGES CXX
                         VERSION ${PROJECT_VER}

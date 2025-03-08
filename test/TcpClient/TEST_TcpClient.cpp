@@ -54,16 +54,14 @@ class Test003Handler : public tcpcat::EventHandler
     void OnConnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
         std::cout << "Test003Handler connected.\n";
-        std::cout << "Server: " << session->RemoteEndpoint().address().to_string() << " : " << session->RemoteEndpoint().port()
-                  << '\n';
+        std::cout << "Server: " << session->RemoteEndpoint().address().to_string() << " : " << session->RemoteEndpoint().port() << '\n';
         session->Close();
     }
 
     void OnDisconnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
         std::cout << "Test003Handler disconnected.\n";
-        std::cout << "Server: " << session->RemoteEndpoint().address().to_string() << " : "
-                  << session->RemoteEndpoint().port() << '\n';
+        std::cout << "Server: " << session->RemoteEndpoint().address().to_string() << " : " << session->RemoteEndpoint().port() << '\n';
     }
 
     void OnError(std::shared_ptr<tcpcat::TcpSession> session, const asio::error_code &err) override
@@ -84,8 +82,19 @@ TEST(Client, TEST_004)
     tcpcat::TcpClient client("tcpbin.com", 4242, std::make_shared<ClientHandler>());
     ASSERT_NO_THROW(client.Connect());
     if (client.IsConnected()) {
-        const std::string msg = "hello tcpcat";
+        const std::string msg = "hello tcpcat TEST_004";
         client.Send(std::vector<unsigned char>(msg.begin(), msg.end()));
     }
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+TEST(Client, TEST_005)
+{
+    tcpcat::TcpClient client("tcpbin.com", 4242, std::make_shared<ClientHandler>());
+    ASSERT_NO_THROW(client.Connect());
+    if (client.IsConnected()) {
+        const char *data = "hello tcpcat TEST_005";
+        client.Send((const unsigned char *)data, 0, strlen(data));
+    }
+    std::this_thread::sleep_for(std::chrono::seconds(1));
 }
