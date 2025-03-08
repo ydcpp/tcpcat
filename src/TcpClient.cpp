@@ -104,6 +104,15 @@ size_t TcpClient::Send(const std::vector<unsigned char> &data, size_t offset, si
     return session_->Send(data, offset, size);
 }
 
+size_t TcpClient::Send(const unsigned char *data, size_t offset, size_t size)
+{
+    if (!session_->IsConnected() || !data) {
+        return 0;
+    }
+
+    return session_->Send(data, offset, size);
+}
+
 void TcpClient::SendAsync(const std::vector<unsigned char> &data)
 {
     session_->SendAsync(data, 0, data.size());

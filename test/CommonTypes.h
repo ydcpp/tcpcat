@@ -74,6 +74,11 @@ class ClientHandler : public tcpcat::EventHandler
         std::cout << "Message sent to server: " << std::string(buf.begin(), buf.begin() + bytes) << '\n';
     }
 
+    void OnSent(std::shared_ptr<tcpcat::TcpSession> session, const unsigned char *buf, size_t bytes) override
+    {
+        std::cout << "Message sent to server: " << std::string((const char *)buf) << '\n';
+    }
+
     void OnDisconnected(std::shared_ptr<tcpcat::TcpSession> session) override
     {
         std::cout << "Disconnected from server: " << session->RemoteEndpoint().address().to_string() << " : "
